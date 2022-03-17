@@ -33,7 +33,7 @@ public class Factura {
     //HashMap
     public HashMap<String, Object> data(){
         HashMap<String, Object> data = new HashMap<>(){{
-            //put("id", facturaRestauranteID.value());
+            put("id", facturaRestauranteID.value());
             put("descripcion", facturaDescripcion.value());
             put("insumos", facturaInsumos.value());
             put("valor", facturaValor.value());
