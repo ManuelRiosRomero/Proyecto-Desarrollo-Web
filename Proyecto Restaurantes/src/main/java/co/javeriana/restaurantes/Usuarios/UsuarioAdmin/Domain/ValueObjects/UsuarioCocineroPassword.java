@@ -3,8 +3,8 @@ package co.javeriana.restaurantes.Usuarios.UsuarioAdmin.Domain.ValueObjects;
 import co.javeriana.restaurantes.Shared.Domain.Aggregate.StringValueObject;
 import co.javeriana.restaurantes.Usuarios.UsuarioAdmin.Domain.Exceptions.PasswordInvalida;
 
-public class UsuarioAdminPassword extends StringValueObject {
-    public UsuarioAdminPassword(String value) {
+public class UsuarioCocineroPassword extends StringValueObject {
+    public UsuarioCocineroPassword(String value) {
         validate(value);
         this.value = value;
     }

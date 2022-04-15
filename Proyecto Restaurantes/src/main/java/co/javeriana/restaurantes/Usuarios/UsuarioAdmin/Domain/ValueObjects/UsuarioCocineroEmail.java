@@ -3,8 +3,8 @@ package co.javeriana.restaurantes.Usuarios.UsuarioAdmin.Domain.ValueObjects;
 import co.javeriana.restaurantes.Shared.Domain.Aggregate.StringValueObject;
 import co.javeriana.restaurantes.Usuarios.UsuarioAdmin.Domain.Exceptions.EmailFormat;
 
-public class UsuarioAdminEmail extends StringValueObject {
-    public UsuarioAdminEmail(String value) {
+public class UsuarioCocineroEmail extends StringValueObject {
+    public UsuarioCocineroEmail(String value) {
         validate(value);
         this.value = value;
     }
