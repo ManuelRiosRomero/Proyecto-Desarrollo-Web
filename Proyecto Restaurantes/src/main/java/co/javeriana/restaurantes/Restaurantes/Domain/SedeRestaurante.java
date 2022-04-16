@@ -4,6 +4,8 @@ import co.javeriana.restaurantes.Restaurantes.Empleado.Domain.Empleado;
 import co.javeriana.restaurantes.Restaurantes.Insumo.Domain.Insumo;
 import co.javeriana.restaurantes.Restaurantes.Domain.Entities.Ubicacion;
 import co.javeriana.restaurantes.Restaurantes.Domain.ValueObjects.RestauranteID;
+import co.javeriana.restaurantes.Restaurantes.Pedido.Domain.Pedido;
+import co.javeriana.restaurantes.Restaurantes.Plato.Domain.Plato;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,18 +13,22 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class Restaurante {
+public class SedeRestaurante {
 
     private RestauranteID id;
     private Ubicacion ubicacion;
     private Optional<List<Empleado>> empleados;
     private Optional<List<Insumo>> insumos;
+    private Optional<List<Pedido>> pedidos;
+    private Optional<List<Plato>> platos;
 
-    public Restaurante(RestauranteID ID, Ubicacion ubicacion, Optional<List<Empleado>> empleados, Optional<List<Insumo>> insumos) {
-        this.id = ID;
+    public SedeRestaurante(RestauranteID id, Ubicacion ubicacion, Optional<List<Empleado>> empleados, Optional<List<Insumo>> insumos, Optional<List<Pedido>> pedidos, Optional<List<Plato>> platos) {
+        this.id = id;
         this.ubicacion = ubicacion;
         this.empleados = empleados;
         this.insumos = insumos;
+        this.pedidos = pedidos;
+        this.platos = platos;
     }
 
     public HashMap<String, Object> data() {
@@ -31,6 +37,8 @@ public class Restaurante {
             put("ubicacion", ubicacion);
             put("empleados", createEmpleados());
             put("isumos", createInsumos());
+            put("pedidos", createPedidos());
+            put("platos", createPlatos());
         }};
         return data;
     }
@@ -51,9 +59,27 @@ public class Restaurante {
         return list;
     }
 
-    public Restaurante create(RestauranteID id, Ubicacion ubicacion) {
-        Restaurante restaurante = new Restaurante(id, ubicacion, Optional.empty(), Optional.empty());
-        return restaurante;
+    private List<HashMap<String, Object>> createPedidos() {
+        List<HashMap<String, Object>> list = new ArrayList<>();
+        if (!pedidos.isEmpty()) {
+            list = pedidos.get().stream().map(pedido -> pedido.data()).collect(Collectors.toList());
+        }
+        return list;
     }
+
+    private List<HashMap<String, Object>> createPlatos() {
+        List<HashMap<String, Object>> list = new ArrayList<>();
+        if (!platos.isEmpty()) {
+            list = platos.get().stream().map(plato -> plato.data()).collect(Collectors.toList());
+        }
+        return list;
+    }
+
+    public SedeRestaurante create(RestauranteID id, Ubicacion ubicacion) {
+        SedeRestaurante sedeRestaurante = new SedeRestaurante(id, ubicacion, Optional.empty(), Optional.empty(),Optional.empty(), Optional.empty());
+        return sedeRestaurante;
+    }
+
+
 
 }

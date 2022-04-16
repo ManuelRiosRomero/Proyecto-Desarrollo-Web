@@ -1,10 +1,10 @@
-package co.javeriana.restaurantes.Usuarios.UsuarioAdmin.Domain.ValueObjects;
+package co.javeriana.restaurantes.Usuarios.UsuarioCajero.Domain.ValueObjects;
 
 import co.javeriana.restaurantes.Shared.Domain.Aggregate.StringValueObject;
-import co.javeriana.restaurantes.Usuarios.UsuarioAdmin.Domain.Exceptions.EmailFormat;
+import co.javeriana.restaurantes.Usuarios.Exceptions.EmailFormat;
 
-public class UsuarioCocineroEmail extends StringValueObject {
-    public UsuarioCocineroEmail(String value) {
+public class UsuarioCajeroEmail extends StringValueObject {
+    public UsuarioCajeroEmail(String value) {
         validate(value);
         this.value = value;
     }

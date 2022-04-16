@@ -1,7 +1,11 @@
 package co.javeriana.restaurantes.CadenaRestaurantes.Cadena.Domain;
 
-import co.javeriana.restaurantes.CadenaRestaurantes.Factura.Domain.Factura;
-import co.javeriana.restaurantes.Restaurantes.Domain.Restaurante;
+
+import co.javeriana.restaurantes.CadenaRestaurantes.Cadena.Domain.Exceptions.CadenaNombreInvalido;
+import co.javeriana.restaurantes.CadenaRestaurantes.Cadena.Domain.ValueObjects.CadenaID;
+import co.javeriana.restaurantes.CadenaRestaurantes.Cadena.Domain.ValueObjects.CadenaNombreEmpresarial;
+import co.javeriana.restaurantes.CadenaRestaurantes.Cadena.Domain.ValueObjects.CadenaNumeroContacto;
+import co.javeriana.restaurantes.Restaurantes.Domain.SedeRestaurante;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,23 +14,31 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class Cadena {
-    private Optional<List<Restaurante>> restaurantes;
-    private Optional<List<Factura>> facturas;
+    private CadenaID id;
+    private Optional<List<SedeRestaurante>> restaurantes;
+    private CadenaNombreEmpresarial nombre;
+    private CadenaNumeroContacto numero;
 
-    public Cadena(Optional<List<Restaurante>> restaurantes, Optional<List<Factura>> facturas) {
+
+    public Cadena(CadenaID id, Optional<List<SedeRestaurante>> restaurantes, CadenaNombreEmpresarial nombre, CadenaNumeroContacto numero) {
+        this.id = id;
         this.restaurantes = restaurantes;
-        this.facturas = facturas;
+        this.nombre = nombre;
+        this.numero = numero;
     }
 
-    public static Cadena create(){
-        Cadena cadena = new Cadena(Optional.empty(), Optional.empty());
+    public static Cadena create(CadenaID id, CadenaNombreEmpresarial nombre, CadenaNumeroContacto numero){
+        Cadena cadena = new Cadena(id, Optional.empty(),nombre, numero);
         return cadena;
     }
     //HashMaps
     public HashMap<String, Object> data() {
         HashMap<String, Object> data = new HashMap<>() {{
+            put("id",id);
             put("restauranes", createRestaurante());
-            put("isumos", createFacturas());
+            put("nombre",nombre);
+            put("numero",numero);
+
         }};
         return data;
     }
@@ -34,18 +46,12 @@ public class Cadena {
     private List<HashMap<String, Object>> createRestaurante() {
         List<HashMap<String, Object>> list = new ArrayList<>();
         if (!restaurantes.isEmpty()) {
-            list = restaurantes.get().stream().map(restaurante -> restaurante.data()).collect(Collectors.toList());
+            list = restaurantes.get().stream().map(sedeRestaurante -> sedeRestaurante.data()).collect(Collectors.toList());
         }
         return list;
     }
 
-    private List<HashMap<String, Object>> createFacturas() {
-        List<HashMap<String, Object>> list = new ArrayList<>();
-        if (!facturas.isEmpty()) {
-            list = facturas.get().stream().map(factura -> factura.data()).collect(Collectors.toList());
-        }
-        return list;
-    }
+
 
 
 

@@ -1,10 +1,10 @@
-package co.javeriana.restaurantes.Usuarios.UsuarioAdmin.Domain.ValueObjects;
+package co.javeriana.restaurantes.Usuarios.UsuarioMesero.Domain.ValueObjects;
 
 import co.javeriana.restaurantes.Shared.Domain.Aggregate.StringValueObject;
-import co.javeriana.restaurantes.Usuarios.UsuarioAdmin.Domain.Exceptions.PasswordInvalida;
+import co.javeriana.restaurantes.Usuarios.Exceptions.PasswordInvalida;
 
-public class UsuarioCocineroPassword extends StringValueObject {
-    public UsuarioCocineroPassword(String value) {
+public class UsuarioMeseroPassword extends StringValueObject {
+    public UsuarioMeseroPassword(String value) {
         validate(value);
         this.value = value;
     }
