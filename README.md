@@ -6,7 +6,6 @@ Sistema para registro y mantenimiento de una cadena de restaurantes. Debe poder 
 ### Manuel Rios 
 ### Richard Fonseca
 ### David Palacios
-### Sebastian Guarnizo
 ### Sebastian Molano
 
 # Links Importantes
