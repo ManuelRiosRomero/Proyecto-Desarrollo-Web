@@ -1,0 +1,5 @@
+path: database-1.crrxglgpvrkt.us-east-1.rds.amazonaws.com
+port: 3306
+database: database-1
+user: userGrupo2
+pass: Grupo2Web
