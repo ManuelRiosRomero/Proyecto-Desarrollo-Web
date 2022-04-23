@@ -27,10 +27,10 @@ public class HibernateConfigFactory {
         sessionFactory.setHibernateProperties(this.hibernateProperties());
 
         //TODO AGREGAR LOS ENTIDADES A LA SESSION FACTORY
-        FileSystemResource resource1 = new FileSystemResource("./src/main/java/co/javeriana/restaurantes/Restaurantes/Insumo/Infrastructure/Hibernate/Insumo.hbm.xml");
-        //FileSystemResource resource2 = new FileSystemResource("./src/main/java/com/webdev/productsystem/Users/Address/Infrastructure/Hibernate/Address.hbm.xml");
+        FileSystemResource insumos = new FileSystemResource("./src/main/java/co/javeriana/restaurantes/Restaurantes/Insumo/Infrastructure/Hibernate/Insumo.hbm.xml");
+        FileSystemResource platos = new FileSystemResource("./src/main/java/co/javeriana/restaurantes/Restaurantes/Plato/Infrastructure/Hibernate/Plato.hbm.xml");
 
-        sessionFactory.setMappingLocations(resource1);
+        sessionFactory.setMappingLocations(insumos, platos);
         return sessionFactory;
     }
 

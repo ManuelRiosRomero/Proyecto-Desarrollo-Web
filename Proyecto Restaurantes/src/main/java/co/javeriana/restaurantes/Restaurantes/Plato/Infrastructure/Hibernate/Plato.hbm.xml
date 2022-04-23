@@ -1,0 +1,31 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="co.javeriana.restaurantes.Restaurantes.Plato.Domain.Plato" table="platomenu">
+
+        <composite-id name="id" class="co.javeriana.restaurantes.Restaurantes.Plato.Domain.ValueObjects.PlatoID" access="field">
+            <key-property name="value" column="platoid" access="field" length="36"/>
+        </composite-id>
+
+        <component name="nombre" class="co.javeriana.restaurantes.Restaurantes.Plato.Domain.ValueObjects.PlatoNombre" access="field">
+            <property name="value" column="nombre" access="field" type="string"/>
+        </component>
+
+        <component name="descripcion" class="co.javeriana.restaurantes.Restaurantes.Plato.Domain.ValueObjects.PlatoDescripcion" access="field">
+            <property name="value" column="descripcion" access="field" type="string"/>
+        </component>
+
+        <component name="costo" class="co.javeriana.restaurantes.Restaurantes.Plato.Domain.ValueObjects.PlatoCosto" access="field">
+            <property name="value" column="costounitario" access="field" type="double"/>
+        </component>
+
+        <property name="insumosList" column="listainsumos" access="field">
+            <type name="co.javeriana.restaurantes.Restaurantes.Plato.Infrastructure.Hibernate.PlatoInsumoCustomType">
+            </type>
+        </property>
+
+    </class>
+</hibernate-mapping>

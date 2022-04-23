@@ -25,6 +25,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/insumo/all").permitAll()
                 .antMatchers(HttpMethod.GET, "/insumo/id").permitAll()
+                .antMatchers(HttpMethod.GET, "/plato/all").permitAll()
                 .antMatchers(HttpMethod.GET, AUTH_WHITELIST).permitAll();
                 //.anyRequest().authenticated();
     }

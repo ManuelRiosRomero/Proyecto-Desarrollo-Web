@@ -5,14 +5,20 @@
 
     <!--- REPOSITORIES -->
     <bean id="InsumoRepository" class="co.javeriana.restaurantes.Restaurantes.Insumo.Infrastructure.Adapters.HibernateInsumoRepository"/>
-
+    <bean id="PlatoRepository" class="co.javeriana.restaurantes.Restaurantes.Plato.Infrastructure.Adapters.HibernatePlatoRepository"/>
 
     <!--- FINDERS -->
+        <!--- INSUMOS -->
     <bean id="InsumoFindAll" class="co.javeriana.restaurantes.Restaurantes.Insumo.Application.FindAll.InsumoFindAll">
         <constructor-arg ref="InsumoRepository"/>
     </bean>
     <bean id="InsumoFindById" class="co.javeriana.restaurantes.Restaurantes.Insumo.Application.FindByID.InsumoFindById">
         <constructor-arg ref="InsumoRepository"/>
+    </bean>
+
+        <!--- PLATOS -->
+    <bean id="PlatoFindAll" class="co.javeriana.restaurantes.Restaurantes.Plato.Application.FindAll.PlatoFindAll">
+        <constructor-arg ref="PlatoRepository"/>
     </bean>
 
 

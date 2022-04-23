@@ -7,11 +7,11 @@
     <class name="co.javeriana.restaurantes.Restaurantes.Insumo.Domain.Insumo" table="insumoinventario">
 
         <composite-id name="id" class="co.javeriana.restaurantes.Restaurantes.Insumo.Domain.ValueObjects.InsumoID" access="field">
-            <key-property name="value" column="insumoID" access="field" length="36"/>
+            <key-property name="value" column="insumoid" access="field" length="36"/>
         </composite-id>
 
         <component name="cantidad" class="co.javeriana.restaurantes.Restaurantes.Insumo.Domain.ValueObjects.InsumoCantidad" access="field">
-            <property name="value" column="cantidadInventario" access="field" type="int"/>
+            <property name="value" column="cantidadinventario" access="field" type="int"/>
         </component>
 
         <component name="nombre" class="co.javeriana.restaurantes.Restaurantes.Insumo.Domain.ValueObjects.InsumoNombre" access="field">
@@ -23,7 +23,7 @@
         </component>
 
         <component name="restauranteId" class="co.javeriana.restaurantes.Restaurantes.Insumo.Domain.ValueObjects.RestauranteID" access="field">
-            <property name="value" column="restauranteID" access="field" type="string"/>
+            <property name="value" column="restauranteid" access="field" type="string"/>
         </component>
 
     </class>
