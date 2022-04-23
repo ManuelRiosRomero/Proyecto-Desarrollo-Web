@@ -12,7 +12,7 @@ public class InsumoCantidad extends IntegerValueObject {
     }
 
     private void validate(Integer value) {
-        validate(value);
+        cantidadNoNegativa(value);
     }
 
     private void cantidadNoNegativa(Integer value) {
