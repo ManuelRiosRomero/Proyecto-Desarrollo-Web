@@ -3,12 +3,16 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!--- REPOSITORIES -->
+    <bean id="InsumoRepository" class="co.javeriana.restaurantes.Restaurantes.Insumo.Infrastructure.Adapters.HibernateInsumoRepository"/>
+
+
+    <!--- RABBIT MQ -->
     <bean id="RabbitMqPublisher" class="co.javeriana.restaurantes.Shared.Infrastructure.RabbitMQ.RabbitMqPublisher" />
 
     <bean id="DomainEventInformation" class="co.javeriana.restaurantes.Shared.Infrastructure.RabbitMQ.DomainEventsInformation" />
 
     <bean id="TokenGeneration" class="co.javeriana.restaurantes.Shared.Application.TokenGeneration" />
-
 
     <bean id="RabbitMqEventBus" class="co.javeriana.restaurantes.Shared.Infrastructure.RabbitMQ.RabbitMqEventBus">
         <constructor-arg ref="RabbitMqPublisher"/>

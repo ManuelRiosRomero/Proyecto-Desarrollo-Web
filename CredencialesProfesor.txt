@@ -1,0 +1,11 @@
+DATABASE PRODUCT SYSTEM
+datasource.url=database-1.cz9cb1chj5p9.us-east-1.rds.amazonaws.com:3306/ProductSystem
+datasource.username=userProductSystem
+datasource.password=*3tRWu5_dbHqVjgY
+
+DATABASE RESTURANT GIVEN BY TEACHER
+datasource.url=database-1.cjhtk8zgexdr.us-east-1.rds.amazonaws.com:3306/Grupo2
+datasource.username=userGrupo2
+datasource.password=aWBW4@-x
+
+b277865e-bf48-11ec-9d64-0242ac120002
