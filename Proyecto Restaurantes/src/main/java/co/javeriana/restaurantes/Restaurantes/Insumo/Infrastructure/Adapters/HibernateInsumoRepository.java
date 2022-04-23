@@ -7,10 +7,12 @@ import co.javeriana.restaurantes.Restaurantes.Insumo.Domain.ValueObjects.Restaur
 import co.javeriana.restaurantes.Shared.Infrastructure.Hibernate.HibernateRepository;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
+@Transactional("transactional-manager")
 public class HibernateInsumoRepository extends HibernateRepository<Insumo> implements InsumoRepository {
 
     public HibernateInsumoRepository(@Qualifier("session-factory") SessionFactory sessionFactory) {

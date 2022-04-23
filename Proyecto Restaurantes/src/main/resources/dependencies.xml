@@ -7,6 +7,13 @@
     <bean id="InsumoRepository" class="co.javeriana.restaurantes.Restaurantes.Insumo.Infrastructure.Adapters.HibernateInsumoRepository"/>
 
 
+    <!--- FINDERS -->
+    <bean id="InsumoFindAll" class="co.javeriana.restaurantes.Restaurantes.Insumo.Application.FindAll.InsumoFindAll">
+        <constructor-arg ref="InsumoRepository"/>
+    </bean>
+
+
+
     <!--- RABBIT MQ -->
     <bean id="RabbitMqPublisher" class="co.javeriana.restaurantes.Shared.Infrastructure.RabbitMQ.RabbitMqPublisher" />
 
