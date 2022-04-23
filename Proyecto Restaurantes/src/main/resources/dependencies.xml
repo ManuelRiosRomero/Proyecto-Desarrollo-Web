@@ -11,6 +11,9 @@
     <bean id="InsumoFindAll" class="co.javeriana.restaurantes.Restaurantes.Insumo.Application.FindAll.InsumoFindAll">
         <constructor-arg ref="InsumoRepository"/>
     </bean>
+    <bean id="InsumoFindById" class="co.javeriana.restaurantes.Restaurantes.Insumo.Application.FindByID.InsumoFindById">
+        <constructor-arg ref="InsumoRepository"/>
+    </bean>
 
 
 
