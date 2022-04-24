@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--- REPOSITORIES -->
+    <bean id="InsumoRepository" class="co.javeriana.restaurantes.Restaurantes.Insumo.Infrastructure.Adapters.HibernateInsumoRepository"/>
+    <bean id="PlatoRepository" class="co.javeriana.restaurantes.Restaurantes.Plato.Infrastructure.Adapters.HibernatePlatoRepository"/>
+
+    <!--- FINDERS -->
+        <!--- INSUMOS -->
+    <bean id="InsumoFindAll" class="co.javeriana.restaurantes.Restaurantes.Insumo.Application.FindAll.InsumoFindAll">
+        <constructor-arg ref="InsumoRepository"/>
+    </bean>
+    <bean id="InsumoFindById" class="co.javeriana.restaurantes.Restaurantes.Insumo.Application.FindByID.InsumoFindById">
+        <constructor-arg ref="InsumoRepository"/>
+    </bean>
+
+        <!--- PLATOS -->
+    <bean id="PlatoFindAll" class="co.javeriana.restaurantes.Restaurantes.Plato.Application.FindAll.PlatoFindAll">
+        <constructor-arg ref="PlatoRepository"/>
+    </bean>
+
+
+
+    <!--- RABBIT MQ -->
+    <bean id="RabbitMqPublisher" class="co.javeriana.restaurantes.Shared.Infrastructure.RabbitMQ.RabbitMqPublisher" />
+
+    <bean id="DomainEventInformation" class="co.javeriana.restaurantes.Shared.Infrastructure.RabbitMQ.DomainEventsInformation" />
+
+    <bean id="TokenGeneration" class="co.javeriana.restaurantes.Shared.Application.TokenGeneration" />
+
+    <bean id="RabbitMqEventBus" class="co.javeriana.restaurantes.Shared.Infrastructure.RabbitMQ.RabbitMqEventBus">
+        <constructor-arg ref="RabbitMqPublisher"/>
+    </bean>
+
+    <bean id="DomainEventJsonDeserializer" class="co.javeriana.restaurantes.Shared.Infrastructure.RabbitMQ.Serializable.DomainEventJsonDeserializer" >
+        <constructor-arg ref="DomainEventInformation"/>
+    </bean>
+
+    <bean id="RabbitMqDomainEventsConsumer" class="co.javeriana.restaurantes.Shared.Infrastructure.RabbitMQ.RabbitMqDomainEventsConsumer" >
+        <constructor-arg ref="DomainEventInformation" />
+        <constructor-arg ref="DomainEventJsonDeserializer" />
+    </bean>
+</beans>

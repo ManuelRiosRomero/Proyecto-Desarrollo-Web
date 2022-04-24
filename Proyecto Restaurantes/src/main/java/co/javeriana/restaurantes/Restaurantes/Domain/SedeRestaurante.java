@@ -4,7 +4,6 @@ import co.javeriana.restaurantes.Restaurantes.Empleado.Domain.Empleado;
 import co.javeriana.restaurantes.Restaurantes.Insumo.Domain.Insumo;
 import co.javeriana.restaurantes.Restaurantes.Domain.Entities.Ubicacion;
 import co.javeriana.restaurantes.Restaurantes.Domain.ValueObjects.RestauranteID;
-import co.javeriana.restaurantes.Restaurantes.Pedido.Domain.Pedido;
 import co.javeriana.restaurantes.Restaurantes.Plato.Domain.Plato;
 
 import java.util.ArrayList;
@@ -19,15 +18,13 @@ public class SedeRestaurante {
     private Ubicacion ubicacion;
     private Optional<List<Empleado>> empleados;
     private Optional<List<Insumo>> insumos;
-    private Optional<List<Pedido>> pedidos;
     private Optional<List<Plato>> platos;
 
-    public SedeRestaurante(RestauranteID id, Ubicacion ubicacion, Optional<List<Empleado>> empleados, Optional<List<Insumo>> insumos, Optional<List<Pedido>> pedidos, Optional<List<Plato>> platos) {
+    public SedeRestaurante(RestauranteID id, Ubicacion ubicacion, Optional<List<Empleado>> empleados, Optional<List<Insumo>> insumos, Optional<List<Plato>> platos) {
         this.id = id;
         this.ubicacion = ubicacion;
         this.empleados = empleados;
         this.insumos = insumos;
-        this.pedidos = pedidos;
         this.platos = platos;
     }
 
@@ -37,7 +34,6 @@ public class SedeRestaurante {
             put("ubicacion", ubicacion);
             put("empleados", createEmpleados());
             put("isumos", createInsumos());
-            put("pedidos", createPedidos());
             put("platos", createPlatos());
         }};
         return data;
@@ -59,14 +55,6 @@ public class SedeRestaurante {
         return list;
     }
 
-    private List<HashMap<String, Object>> createPedidos() {
-        List<HashMap<String, Object>> list = new ArrayList<>();
-        if (!pedidos.isEmpty()) {
-            list = pedidos.get().stream().map(pedido -> pedido.data()).collect(Collectors.toList());
-        }
-        return list;
-    }
-
     private List<HashMap<String, Object>> createPlatos() {
         List<HashMap<String, Object>> list = new ArrayList<>();
         if (!platos.isEmpty()) {
@@ -76,7 +64,7 @@ public class SedeRestaurante {
     }
 
     public SedeRestaurante create(RestauranteID id, Ubicacion ubicacion) {
-        SedeRestaurante sedeRestaurante = new SedeRestaurante(id, ubicacion, Optional.empty(), Optional.empty(),Optional.empty(), Optional.empty());
+        SedeRestaurante sedeRestaurante = new SedeRestaurante(id, ubicacion, Optional.empty(), Optional.empty(),Optional.empty());
         return sedeRestaurante;
     }
 

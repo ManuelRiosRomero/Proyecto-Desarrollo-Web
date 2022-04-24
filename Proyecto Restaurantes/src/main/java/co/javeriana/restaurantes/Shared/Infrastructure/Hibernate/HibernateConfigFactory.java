@@ -31,6 +31,7 @@ public class HibernateConfigFactory {
         FileSystemResource platos = new FileSystemResource("./src/main/java/co/javeriana/restaurantes/Restaurantes/Plato/Infrastructure/Hibernate/Plato.hbm.xml");
         FileSystemResource factura = new FileSystemResource("./src/main/java/co/javeriana/restaurantes/Restaurantes/Factura/Infrastructure/Hibernate/Factura.hbm.xml");
         sessionFactory.setMappingLocations(insumos, platos, factura);
+
         return sessionFactory;
     }
 

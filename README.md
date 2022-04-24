@@ -6,7 +6,6 @@ Sistema para registro y mantenimiento de una cadena de restaurantes. Debe poder 
 ### Manuel Rios 
 ### Richard Fonseca
 ### David Palacios
-### Sebastian Guarnizo
 ### Sebastian Molano
 
 # Links Importantes
@@ -14,4 +13,8 @@ Sistema para registro y mantenimiento de una cadena de restaurantes. Debe poder 
 
 [Diagrama Bundle Context](https://lucid.app/lucidchart/040a0efb-1a10-4fff-926c-f1ca7a9b6036/edit?shared=true&page=0_0#)
 
+[Diagrama de Bases de Datos](https://app.quickdatabasediagrams.com/#/d/o11HgW)
+
 [Trello del Grupo](https://trello.com/b/TJZS24Up/proyecto-web-restaurantes)
+
+Prueba DP
