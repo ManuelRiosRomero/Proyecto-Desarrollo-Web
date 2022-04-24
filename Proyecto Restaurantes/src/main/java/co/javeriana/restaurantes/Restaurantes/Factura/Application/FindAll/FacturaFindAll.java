@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Optional;
 
 public class FacturaFindAll {
-
     private FacturaRepository repository;
 
     public FacturaFindAll(FacturaRepository repository){
@@ -16,11 +15,11 @@ public class FacturaFindAll {
     }
 
     public List<Factura> execute(){
-        List<Factura> platos = new ArrayList<>();
+        List<Factura> facturas = new ArrayList<>();
         Optional<List<Factura>> optionalFactura = repository.all();
         if(optionalFactura.isPresent()){
-            platos = optionalFactura.get();
+            facturas = optionalFactura.get();
         }
-        return platos;
+        return facturas;
     }
 }
