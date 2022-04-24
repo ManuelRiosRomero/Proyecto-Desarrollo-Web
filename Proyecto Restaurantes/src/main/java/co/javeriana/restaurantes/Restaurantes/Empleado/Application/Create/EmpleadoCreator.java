@@ -15,7 +15,7 @@ public class EmpleadoCreator {
     public void execute(String id, String cedula, String nombre, String puesto, String password, String restauranteId) {
         Empleado empleado = Empleado.create(new EmpleadoID(id), new EmpleadoCedula(cedula), new EmpleadoNombre(nombre),
                 new EmpleadoPuesto(puesto), new EmpleadoPassword(password),
-                new RestauranteID(id));
+                new RestauranteID(restauranteId));
         repository.save(empleado);
     }
 }
