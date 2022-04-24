@@ -1,0 +1,38 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="co.javeriana.restaurantes.Restaurantes.Factura.Domain.Factura" table="factura">
+
+        <composite-id name="id" class="co.javeriana.restaurantes.Restaurantes.Factura.Domain.ValueObjects.FacturaID" access="field">
+            <key-property name="value" column="facturaID" access="field" length="36"/>
+        </composite-id>
+
+        <component name="valor" class="co.javeriana.restaurantes.Restaurantes.Factura.Domain.ValueObjects.FacturaValor" access="field">
+            <property name="value" column="valor" access="field" type="double"/>
+        </component>
+
+        <component name="restauranteId" class="co.javeriana.restaurantes.Restaurantes.Factura.Domain.ValueObjects.RestauranteID" access="field">
+            <property name="value" column="restauranteid" access="field" type="string"/>
+        </component>
+
+        <component name="fecha" class="co.javeriana.restaurantes.Restaurantes.Factura.Domain.ValueObjects.FacturaFecha" access="field">
+            <property name="dateTime" column="fecha" access="field" type="string"/>
+        </component>
+
+        <component name="propina" class="co.javeriana.restaurantes.Restaurantes.Factura.Domain.ValueObjects.FacturaPropina" access="field">
+            <property name="value" column="propina" access="field" type="double"/>
+        </component>
+
+        <component name="completado" class="co.javeriana.restaurantes.Restaurantes.Factura.Domain.ValueObjects.FacturaCompletado" access="field">
+            <property name="value" column="completado" access="field" type="int"/>
+        </component>
+
+        <property name="platos" column="platosOrdenados" access="field">
+            <type name="co.javeriana.restaurantes.Restaurantes.Factura.Infrastructure.Hibernate.FacturaPlatoCustomType">
+            </type>
+        </property>
+
+
+    </class>
+</hibernate-mapping>

@@ -29,8 +29,9 @@ public class HibernateConfigFactory {
         //TODO AGREGAR LOS ENTIDADES A LA SESSION FACTORY
         FileSystemResource insumos = new FileSystemResource("./src/main/java/co/javeriana/restaurantes/Restaurantes/Insumo/Infrastructure/Hibernate/Insumo.hbm.xml");
         FileSystemResource platos = new FileSystemResource("./src/main/java/co/javeriana/restaurantes/Restaurantes/Plato/Infrastructure/Hibernate/Plato.hbm.xml");
+        FileSystemResource factura = new FileSystemResource("./src/main/java/co/javeriana/restaurantes/Restaurantes/Factura/Infrastructure/Hibernate/Factura.hbm.xml");
+        sessionFactory.setMappingLocations(insumos, platos, factura);
 
-        sessionFactory.setMappingLocations(insumos, platos);
         return sessionFactory;
     }
 
