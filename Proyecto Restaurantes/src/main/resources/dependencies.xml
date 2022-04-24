@@ -41,6 +41,10 @@
         <constructor-arg ref="FacturaRepository"/>
     </bean>
 
+    <bean id="FacturaCreate" class="co.javeriana.restaurantes.Restaurantes.Factura.Application.Create.FacturaCreate">
+        <constructor-arg ref="FacturaRepository"/>
+    </bean>
+
 
 
     <!--- RABBIT MQ -->

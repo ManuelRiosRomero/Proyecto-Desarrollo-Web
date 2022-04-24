@@ -42,6 +42,10 @@ public class Factura {
         return data;
     }
 
+    public static Factura create(FacturaID id, FacturaValor valor, FacturaFecha fecha, FacturaPropina propina, RestauranteID resId) {
+        Factura factura = new Factura(id, new FacturaCompletado(false), Optional.of(new ArrayList<FacturaPlato>()), valor, fecha, propina, resId);
+        return factura;
+    }
 
     private List<HashMap<String, Object>> createPlatos() {
         List<HashMap<String, Object>> list = new ArrayList<>();

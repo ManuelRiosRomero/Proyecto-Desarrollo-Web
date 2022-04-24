@@ -21,7 +21,7 @@ public class HibernateFacturaRepository extends HibernateRepository<Factura> imp
 
     @Override
     public void save(Factura factura) {
-
+        persist(factura);
     }
 
     @Override

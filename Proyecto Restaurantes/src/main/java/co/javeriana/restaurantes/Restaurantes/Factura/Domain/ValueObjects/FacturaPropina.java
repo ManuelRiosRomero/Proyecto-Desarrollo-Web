@@ -8,6 +8,7 @@ public class FacturaPropina extends DoubleValueObject {
 
     public FacturaPropina(Double value) {
         validate(value);
+        this.value = value;
     }
 
     private void validate(Double value) {

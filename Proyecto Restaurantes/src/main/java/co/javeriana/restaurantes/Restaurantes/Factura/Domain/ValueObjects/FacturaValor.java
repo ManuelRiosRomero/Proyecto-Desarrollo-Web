@@ -8,6 +8,7 @@ public class FacturaValor extends DoubleValueObject {
 
     public FacturaValor(Double value) {
         validate(value);
+        this.value = value;
     }
 
     private void validate(Double value) {
