@@ -1,0 +1,30 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="co.javeriana.restaurantes.Restaurantes.Empleado.Domain.Empleado" table="empleado">
+
+        <composite-id name="cedula" class="co.javeriana.restaurantes.Restaurantes.Empleado.Domain.ValueObjects.EmpleadoID" access="field">
+            <key-property name="value" column="cedula" access="field" length="36"/>
+        </composite-id>
+
+        <component name="password" class="co.javeriana.restaurantes.Restaurantes.Empleado.Domain.ValueObjects.EmpleadoPassword" access="field">
+            <property name="value" column="password" access="field" type="string"/>
+        </component>
+
+        <component name="nombre" class="co.javeriana.restaurantes.Restaurantes.Empleado.Domain.ValueObjects.EmpleadoNombre" access="field">
+            <property name="value" column="nombre" access="field" type="string"/>
+        </component>
+
+        <component name="puesto" class="co.javeriana.restaurantes.Restaurantes.Empleado.Domain.ValueObjects.EmpleadoPuesto" access="field">
+            <property name="value" column="cargo" access="field" type="string"/>
+        </component>
+
+        <component name="restauranteId" class="co.javeriana.restaurantes.Restaurantes.Empleado.Domain.ValueObjects.RestauranteID" access="field">
+            <property name="value" column="restauranteID" access="field" type="string"/>
+        </component>
+
+    </class>
+</hibernate-mapping>

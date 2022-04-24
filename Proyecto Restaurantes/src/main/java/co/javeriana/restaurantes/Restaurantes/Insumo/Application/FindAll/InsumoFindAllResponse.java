@@ -14,8 +14,8 @@ public class InsumoFindAllResponse {
         this.insumos = insumos;
     }
 
-    public List<HashMap<String,Object>> response() {
-        List<HashMap<String,Object>> response = insumos.stream().map(insu-> insu.data()).collect(Collectors.toList());
+    public List<HashMap<String, Object>> response() {
+        List<HashMap<String, Object>> response = insumos.stream().map(insu-> insu.data()).collect(Collectors.toList());
         return response;
     }
 }

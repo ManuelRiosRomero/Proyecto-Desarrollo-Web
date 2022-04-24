@@ -23,6 +23,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
                 //.addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests()
+                .antMatchers(HttpMethod.GET, "/empleado/all").permitAll()
                 .antMatchers(HttpMethod.GET, "/insumo/all").permitAll()
                 .antMatchers(HttpMethod.GET, "/insumo/id").permitAll()
                 .antMatchers(HttpMethod.GET, "/plato/all").permitAll()

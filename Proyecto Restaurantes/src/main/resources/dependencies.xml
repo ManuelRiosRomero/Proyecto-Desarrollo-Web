@@ -6,8 +6,8 @@
     <!--- REPOSITORIES -->
     <bean id="InsumoRepository" class="co.javeriana.restaurantes.Restaurantes.Insumo.Infrastructure.Adapters.HibernateInsumoRepository"/>
     <bean id="PlatoRepository" class="co.javeriana.restaurantes.Restaurantes.Plato.Infrastructure.Adapters.HibernatePlatoRepository"/>
+    <bean id="EmpleadoRepository" class="co.javeriana.restaurantes.Restaurantes.Empleado.Infrastructure.Adapters.HibernateEmpleadoRepository"/>
     <bean id="FacturaRepository" class="co.javeriana.restaurantes.Restaurantes.Factura.Infrastructure.Adapters.HibernateFacturaRepository"/>
-
 
     <!--- FINDERS -->
         <!--- INSUMOS -->
@@ -23,11 +23,15 @@
         <constructor-arg ref="PlatoRepository"/>
     </bean>
 
+    <!-- EMPLEADOS -->
+    <bean id="EmpleadoFindAll" class="co.javeriana.restaurantes.Restaurantes.Empleado.Application.FindAll.EmpleadoFindAll">
+        <constructor-arg ref="EmpleadoRepository"/>
+    </bean>
+
     <!--- Factura -->
     <bean id="FacturaFindAll" class="co.javeriana.restaurantes.Restaurantes.Factura.Application.FindAll.FacturaFindAll">
         <constructor-arg ref="FacturaRepository"/>
     </bean>
-
 
     <!--- RABBIT MQ -->
     <bean id="RabbitMqPublisher" class="co.javeriana.restaurantes.Shared.Infrastructure.RabbitMQ.RabbitMqPublisher" />
