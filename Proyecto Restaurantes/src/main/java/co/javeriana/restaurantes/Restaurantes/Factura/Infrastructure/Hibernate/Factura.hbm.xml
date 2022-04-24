@@ -17,7 +17,7 @@
         </component>
 
         <component name="fecha" class="co.javeriana.restaurantes.Restaurantes.Factura.Domain.ValueObjects.FacturaFecha" access="field">
-            <property name="dateTime" column="fecha" access="field" type="string"/>
+            <property name="value" column="fecha" access="field" type="string"/>
         </component>
 
         <component name="propina" class="co.javeriana.restaurantes.Restaurantes.Factura.Domain.ValueObjects.FacturaPropina" access="field">
@@ -25,7 +25,7 @@
         </component>
 
         <component name="completado" class="co.javeriana.restaurantes.Restaurantes.Factura.Domain.ValueObjects.FacturaCompletado" access="field">
-            <property name="value" column="completado" access="field" type="int"/>
+            <property name="value" column="completado" access="field" type="boolean"/>
         </component>
 
         <property name="platos" column="platosOrdenados" access="field">

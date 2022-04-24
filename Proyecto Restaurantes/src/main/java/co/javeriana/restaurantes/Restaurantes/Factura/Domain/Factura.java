@@ -2,9 +2,7 @@ package co.javeriana.restaurantes.Restaurantes.Factura.Domain;
 
 import co.javeriana.restaurantes.Restaurantes.Factura.Domain.Entities.FacturaPlato;
 import co.javeriana.restaurantes.Restaurantes.Factura.Domain.ValueObjects.*;
-import co.javeriana.restaurantes.Restaurantes.Insumo.Domain.ValueObjects.RestauranteID;
-import co.javeriana.restaurantes.Restaurantes.Plato.Domain.Entities.PlatoInsumo;
-import co.javeriana.restaurantes.Restaurantes.Plato.Domain.Plato;
+import co.javeriana.restaurantes.Restaurantes.Factura.Domain.ValueObjects.RestauranteID;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,11 +31,11 @@ public class Factura {
 
     public HashMap<String, Object> data() {
         HashMap<String, Object> data = new HashMap<>() {{
-            put("id", id);
-            put("completado", completado);
-            put("valor", valor);
-            put("fecha", fecha);
-            put("propina", propina);
+            put("id", id.value());
+            put("completado", completado.value());
+            put("valor", valor.value());
+            put("fecha", fecha.value());
+            put("propina", propina.value());
             put("platos", createPlatos());
             put("restauranteId",restauranteId.value());
         }};

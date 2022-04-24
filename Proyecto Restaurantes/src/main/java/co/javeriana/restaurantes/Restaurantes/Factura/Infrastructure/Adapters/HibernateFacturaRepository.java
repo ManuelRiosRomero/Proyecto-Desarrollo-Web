@@ -7,16 +7,16 @@ import co.javeriana.restaurantes.Restaurantes.Plato.Domain.Plato;
 import co.javeriana.restaurantes.Shared.Infrastructure.Hibernate.HibernateRepository;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
-
+@Transactional("transactional-manager")
 public class HibernateFacturaRepository extends HibernateRepository<Factura> implements FacturaRepository {
 
     public HibernateFacturaRepository(@Qualifier("session-factory") SessionFactory sessionFactory) {
         super(sessionFactory, Factura.class);
-        System.out.println("HibernateFacturaRepository");
     }
 
     @Override
@@ -36,7 +36,7 @@ public class HibernateFacturaRepository extends HibernateRepository<Factura> imp
 
     @Override
     public Optional<List<Factura>> all() {
-        return Optional.empty();
+        return getAll();
     }
 
     @Override
