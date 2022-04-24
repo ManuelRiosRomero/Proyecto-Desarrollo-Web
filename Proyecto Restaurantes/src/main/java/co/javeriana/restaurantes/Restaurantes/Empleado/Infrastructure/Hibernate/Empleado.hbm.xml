@@ -6,9 +6,13 @@
 <hibernate-mapping>
     <class name="co.javeriana.restaurantes.Restaurantes.Empleado.Domain.Empleado" table="empleado">
 
-        <composite-id name="cedula" class="co.javeriana.restaurantes.Restaurantes.Empleado.Domain.ValueObjects.EmpleadoID" access="field">
-            <key-property name="value" column="cedula" access="field" length="36"/>
+        <composite-id name="id" class="co.javeriana.restaurantes.Restaurantes.Empleado.Domain.ValueObjects.EmpleadoID" access="field">
+            <key-property name="value" column="id" access="field" length="36"/>
         </composite-id>
+
+        <component name="cedula" class="co.javeriana.restaurantes.Restaurantes.Empleado.Domain.ValueObjects.EmpleadoCedula" access="field">
+            <property name="value" column="cedula" access="field" type="string"/>
+        </component>
 
         <component name="password" class="co.javeriana.restaurantes.Restaurantes.Empleado.Domain.ValueObjects.EmpleadoPassword" access="field">
             <property name="value" column="password" access="field" type="string"/>
