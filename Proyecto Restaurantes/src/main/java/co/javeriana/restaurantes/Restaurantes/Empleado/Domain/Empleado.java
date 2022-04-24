@@ -1,5 +1,6 @@
 package co.javeriana.restaurantes.Restaurantes.Empleado.Domain;
 
+import co.javeriana.restaurantes.Restaurantes.Empleado.Domain.Exceptions.AuthenticateFailed;
 import co.javeriana.restaurantes.Restaurantes.Empleado.Domain.ValueObjects.*;
 
 import java.util.HashMap;
@@ -34,6 +35,17 @@ public class Empleado {
             put("restauranteId", restauranteId.value());
         }};
         return data;
+    }
+
+    public static Empleado create(EmpleadoID id, EmpleadoCedula cedula, EmpleadoNombre nombre, EmpleadoPuesto puesto, EmpleadoPassword password, RestauranteID restauranteid) {
+        Empleado empleado = new Empleado(id, cedula, nombre, puesto, password, restauranteid);
+        return empleado;
+    }
+
+    public void authenticateEmpleado(EmpleadoCedula cedula, EmpleadoPassword password) {
+        if (!(this.password.equals(password) && this.cedula.equals(cedula))) {
+            throw new AuthenticateFailed("Credenciales inválidas");
+        }
     }
 
 }

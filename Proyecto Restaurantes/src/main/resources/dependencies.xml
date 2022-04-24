@@ -28,10 +28,16 @@
         <constructor-arg ref="EmpleadoRepository"/>
     </bean>
 
+    <bean id="EmpleadoCreate" class="co.javeriana.restaurantes.Restaurantes.Empleado.Application.Create.EmpleadoCreator">
+        <constructor-arg ref="EmpleadoRepository"/>
+    </bean>
+
     <!--- Factura -->
     <bean id="FacturaFindAll" class="co.javeriana.restaurantes.Restaurantes.Factura.Application.FindAll.FacturaFindAll">
         <constructor-arg ref="FacturaRepository"/>
     </bean>
+
+
 
     <!--- RABBIT MQ -->
     <bean id="RabbitMqPublisher" class="co.javeriana.restaurantes.Shared.Infrastructure.RabbitMQ.RabbitMqPublisher" />
