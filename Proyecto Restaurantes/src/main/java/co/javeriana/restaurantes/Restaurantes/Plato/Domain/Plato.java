@@ -46,10 +46,10 @@ public class Plato {
 
     public HashMap<String, Object> data() {
         HashMap<String, Object> data = new HashMap<>() {{
-            put("id", id);
-            put("nombre", nombre);
-            put("costo", costo);
-            put("descripcion", descripcion);
+            put("id", id.value());
+            put("nombre", nombre.value());
+            put("costo", costo.value());
+            put("descripcion", descripcion.value());
             put("insumos", createInsumos());
         }};
         return data;
