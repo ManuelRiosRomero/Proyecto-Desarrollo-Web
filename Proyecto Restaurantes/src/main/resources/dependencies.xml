@@ -69,8 +69,4 @@
         <constructor-arg ref="DomainEventInformation"/>
     </bean>
 
-    <bean id="RabbitMqDomainEventsConsumer" class="co.javeriana.restaurantes.Shared.Infrastructure.RabbitMQ.RabbitMqDomainEventsConsumer" >
-        <constructor-arg ref="DomainEventInformation" />
-        <constructor-arg ref="DomainEventJsonDeserializer" />
-    </bean>
 </beans>

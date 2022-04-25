@@ -1,11 +1,13 @@
 package co.javeriana.restaurantes.Restaurantes.Insumo.Domain;
 
+import co.javeriana.restaurantes.Restaurantes.Insumo.Domain.DomainEvents.InsumoCreatedDomainEvent;
 import co.javeriana.restaurantes.Restaurantes.Insumo.Domain.ValueObjects.*;
+import co.javeriana.restaurantes.Shared.Domain.Aggregate.AggregateRoot;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import java.util.HashMap;
 
-public class Insumo {
+public class Insumo extends AggregateRoot {
 
     private InsumoID id;
     private InsumoCantidad cantidad;
@@ -38,6 +40,7 @@ public class Insumo {
 
     public static Insumo create(InsumoID id, InsumoCantidad cantidad, InsumoNombre nombre, InsumoCosto costo, RestauranteID resId) {
         Insumo insumo = new Insumo(id, cantidad, nombre, costo, resId);
+        insumo.record(new InsumoCreatedDomainEvent(id.value(), cantidad.value(), nombre.value(), costo.value(), resId.value()));
         return insumo;
     }
 
