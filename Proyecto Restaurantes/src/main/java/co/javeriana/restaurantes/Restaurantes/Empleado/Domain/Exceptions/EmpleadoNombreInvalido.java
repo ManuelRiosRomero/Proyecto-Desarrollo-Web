@@ -1,4 +1,4 @@
-package co.javeriana.restaurantes.Restaurantes.Domain.Exceptions;
+package co.javeriana.restaurantes.Restaurantes.Empleado.Domain.Exceptions;
 
 public class EmpleadoNombreInvalido extends RuntimeException{
 

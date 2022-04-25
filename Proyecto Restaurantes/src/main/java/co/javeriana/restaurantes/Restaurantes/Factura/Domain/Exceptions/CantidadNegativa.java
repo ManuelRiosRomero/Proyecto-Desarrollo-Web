@@ -1,4 +1,4 @@
-package co.javeriana.restaurantes.Restaurantes.Domain.Exceptions;
+package co.javeriana.restaurantes.Restaurantes.Factura.Domain.Exceptions;
 
 public class CantidadNegativa extends RuntimeException {
 

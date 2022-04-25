@@ -1,15 +1,15 @@
 package co.javeriana.restaurantes.Restaurantes.Empleado.Infrastructure.Controllers;
 
 import co.javeriana.restaurantes.Restaurantes.Empleado.Application.Create.EmpleadoCreator;
+import co.javeriana.restaurantes.Restaurantes.Empleado.Domain.Exceptions.NoType;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
 
 @RestController
 @Tag(name = "Empleado", description = "Empleado REST API")
@@ -23,6 +23,24 @@ public class EmpleadoCreateController {
     public ResponseEntity execute(@RequestBody EmpleadoCreatorRequest request) {
         creator.execute(request.getId(), request.getCedula(), request.getNombre(), request.getPuesto(), request.getPassword(), request.getRestauranteId());
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
+    }
+
+    @ExceptionHandler(NoType.class)
+    @ResponseStatus(code = HttpStatus.NOT_ACCEPTABLE)
+    public ResponseEntity<HashMap> handleNoType(RuntimeException ex){
+        HashMap<String, String> response = new HashMap<>(){{
+            put("error", ex.getMessage());
+        }};
+        return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(response);
+    }
+
+    @ExceptionHandler(NoType.class)
+    @ResponseStatus(code = HttpStatus.EXPECTATION_FAILED)
+    public ResponseEntity<HashMap> handleEmpleadoNombreInvalido(RuntimeException ex){
+        HashMap<String, String> response = new HashMap<>(){{
+            put("error", ex.getMessage());
+        }};
+        return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(response);
     }
 
     static class EmpleadoCreatorRequest {

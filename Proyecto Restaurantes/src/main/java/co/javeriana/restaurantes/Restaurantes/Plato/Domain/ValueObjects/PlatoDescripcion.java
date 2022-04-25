@@ -1,6 +1,6 @@
 package co.javeriana.restaurantes.Restaurantes.Plato.Domain.ValueObjects;
 
-import co.javeriana.restaurantes.Restaurantes.Domain.Exceptions.PlatoNombreInvalido;
+import co.javeriana.restaurantes.Restaurantes.Plato.Domain.Exceptions.PlatoNombreInvalido;
 import co.javeriana.restaurantes.Shared.Domain.Aggregate.StringValueObject;
 
 public class PlatoDescripcion extends StringValueObject {

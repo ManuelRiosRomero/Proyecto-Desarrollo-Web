@@ -1,4 +1,4 @@
-package co.javeriana.restaurantes.Restaurantes.Domain.Exceptions;
+package co.javeriana.restaurantes.Restaurantes.Insumo.Domain.Exceptions;
 
 public class InsumoNombreInvalido extends RuntimeException {
 
