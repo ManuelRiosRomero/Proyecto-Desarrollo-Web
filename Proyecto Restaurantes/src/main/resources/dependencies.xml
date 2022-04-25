@@ -34,8 +34,10 @@
     <bean id="PlatoInsumoFindAll" class="co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Application.FindAll.PlatoInsumoFindAll">
         <constructor-arg ref="PlatoInsumoRepository"/>
     </bean>
+
     <bean id="PlatoInsumoCreator" class="co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Application.Create.PlatoInsumoCreate">
         <constructor-arg ref="PlatoInsumoRepository"/>
+        <constructor-arg ref="RabbitMqEventBus"/>
     </bean>
 
 

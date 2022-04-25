@@ -1,13 +1,16 @@
 package co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain;
 
+import co.javeriana.restaurantes.Restaurantes.Insumo.Domain.Insumo;
+import co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain.DomainEvents.PlatoInsumoCreatedDomainEvent;
 import co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain.ValueObjects.PlatoID;
 import co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain.ValueObjects.InsumoID;
 import co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain.ValueObjects.PlatoInsumoCantidadNecesaria;
 import co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain.ValueObjects.PlatoInsumoNombre;
+import co.javeriana.restaurantes.Shared.Domain.Aggregate.AggregateRoot;
 
 import java.util.HashMap;
 
-public class PlatoInsumo {
+public class PlatoInsumo extends AggregateRoot {
     private InsumoID insumoID;
     private PlatoID platoID;
     private PlatoInsumoNombre nombreinsumo;
@@ -18,6 +21,24 @@ public class PlatoInsumo {
         this.platoID = platoID;
         this.nombreinsumo = nombreinsumo;
         this.cantidadNecesaria = cantidadNecesaria;
+    }
+
+    public static PlatoInsumo create(InsumoID insumoID, PlatoInsumoNombre nombreinsumo, PlatoID platoID, PlatoInsumoCantidadNecesaria cantidadNecesaria) {{
+            PlatoInsumo platoInsumo = new PlatoInsumo(
+                    insumoID,
+                    nombreinsumo,
+                    platoID,
+                    cantidadNecesaria);
+
+
+            //Crear Evento de Dominio PLatoInsumoCreated
+        platoInsumo.record(new PlatoInsumoCreatedDomainEvent
+                (insumoID.value(),insumoID.value(),
+                        nombreinsumo.value(), cantidadNecesaria.value()));
+
+
+            return platoInsumo;
+        }
     }
 
     public HashMap<String, Object> data() {

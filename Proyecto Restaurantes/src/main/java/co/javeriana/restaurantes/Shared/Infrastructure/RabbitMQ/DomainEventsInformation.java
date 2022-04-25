@@ -14,6 +14,7 @@ public class DomainEventsInformation {
     public DomainEventsInformation() {
         //indexedDomainEvent.put("add.address", AddressCreatedDomainEvent.class);
         domainEventSubscribers.put("productSystem.users.address.add.address", "AddAddressOnCreatedAddress");
+
     }
 
     public Class<? extends DomainEvent> getDomainEvent(String name) {

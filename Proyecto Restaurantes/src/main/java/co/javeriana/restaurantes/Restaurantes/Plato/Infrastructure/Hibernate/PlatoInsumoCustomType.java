@@ -46,9 +46,8 @@ public class PlatoInsumoCustomType implements UserType {
             if(value.isPresent()){
                 List<HashMap<String, Object>> objects = new ObjectMapper().readValue(value.get(), List.class);
                 response = objects.stream().map(element -> new PlatoInsumo((String) element.get("id"),
-                        (int) element.get("cantidad"),
-                        (String) element.get("nombre"),
-                        (double) element.get("costo"))).collect(Collectors.toList());
+                        (int) element.get("cantidadnecesaria"),
+                        (String) element.get("nombre"))).collect(Collectors.toList());
             }
 
         }catch (Exception e){

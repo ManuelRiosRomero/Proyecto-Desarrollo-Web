@@ -5,24 +5,23 @@ import java.util.HashMap;
 public class PlatoInsumo {
 
     private String id;
-    private int cantidad;
     private String nombre;
-    private double costo;
+    private int cantidadnecesaria;
+
+    //private double costo;
 
 
-    public PlatoInsumo(String id, int cantidad, String nombre, double costo) {
+    public PlatoInsumo(String id, int cantidadnecesaria, String nombre) {
         this.id = id;
-        this.cantidad = cantidad;
+        this.cantidadnecesaria = cantidadnecesaria;
         this.nombre = nombre;
-        this.costo = costo;
     }
 
     public HashMap<String, Object> data() {
         HashMap<String, Object> data = new HashMap<>();
         data.put("id", id);
-        data.put("cantidad", cantidad);
+        data.put("cantidad", cantidadnecesaria);
         data.put("nombre", nombre);
-        data.put("costo", costo);
         return data;
     }
 

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@Tag(name = "Plato", description = "Plato REST API")
+@Tag(name = "Plato Insumo", description = "Plato Insumo REST API")
 @RequestMapping(value = "/plato")
 public class PlatoInsumoCreateController {
 
