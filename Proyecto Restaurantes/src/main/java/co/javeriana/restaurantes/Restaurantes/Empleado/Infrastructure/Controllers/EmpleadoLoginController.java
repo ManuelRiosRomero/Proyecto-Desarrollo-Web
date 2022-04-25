@@ -2,6 +2,7 @@ package co.javeriana.restaurantes.Restaurantes.Empleado.Infrastructure.Controlle
 
 import co.javeriana.restaurantes.Restaurantes.Empleado.Application.Login.EmpleadoLogin;
 import co.javeriana.restaurantes.Restaurantes.Empleado.Domain.Exceptions.AuthenticateFailed;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 
 @RestController
+@Tag(name = "Empleado", description = "Empleado REST API")
 @RequestMapping(value = "/empleado")
 public class EmpleadoLoginController {
 
