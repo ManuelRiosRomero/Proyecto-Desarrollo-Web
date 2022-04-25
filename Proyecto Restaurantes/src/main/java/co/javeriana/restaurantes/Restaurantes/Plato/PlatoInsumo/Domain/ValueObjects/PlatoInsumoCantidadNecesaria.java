@@ -16,8 +16,8 @@ public class PlatoInsumoCantidadNecesaria extends IntegerValueObject {
         cantidadNoNegativa(value);
     }
     private void cantidadNoNegativa(Integer value) {
-        if (value < 0) {
-            throw new RuntimeException("La cantidad de insumos no puede ser negativa");
+        if (value <= 0) {
+            throw new RuntimeException("La cantidad de insumos debe ser mayor a 0");
         }
     }
 }

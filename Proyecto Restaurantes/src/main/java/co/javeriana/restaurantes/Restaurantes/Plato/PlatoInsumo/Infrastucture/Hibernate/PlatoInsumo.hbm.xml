@@ -10,6 +10,10 @@
             <key-property name="value" column="insumoID" type="string" access="field" />
         </composite-id>
 
+        <component name="nombreinsumo" class="co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain.ValueObjects.PlatoInsumoNombre" access="field">
+            <property name="value" column="nombreinsumo" access="field" type="string"/>
+        </component>
+
         <component name="platoID" class="co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain.ValueObjects.PlatoID" access="field">
             <property name="value" column="platoID" access="field" type="string"/>
         </component>

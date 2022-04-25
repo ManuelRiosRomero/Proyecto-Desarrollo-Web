@@ -5,6 +5,7 @@ import co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain.Ports.Pla
 import co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain.ValueObjects.InsumoID;
 import co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain.ValueObjects.PlatoID;
 import co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain.ValueObjects.PlatoInsumoCantidadNecesaria;
+import co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain.ValueObjects.PlatoInsumoNombre;
 
 public class PlatoInsumoCreate {
 
@@ -13,9 +14,9 @@ public class PlatoInsumoCreate {
     public PlatoInsumoCreate(PlatoInsumoRepository repository) {
         this.repository = repository;
     }
-    public void execute(String insumoID, String platoID, int cantidad)
+    public void execute(String insumoID, String nombreInsumo, String platoID, int cantidad)
     {
-        PlatoInsumo platoInsumo = new PlatoInsumo(new InsumoID(insumoID), new PlatoID(platoID), new PlatoInsumoCantidadNecesaria(cantidad));
+        PlatoInsumo platoInsumo = new PlatoInsumo(new InsumoID(insumoID), new PlatoInsumoNombre(nombreInsumo), new PlatoID(platoID), new PlatoInsumoCantidadNecesaria(cantidad));
         repository.save(platoInsumo);
     }
 }
