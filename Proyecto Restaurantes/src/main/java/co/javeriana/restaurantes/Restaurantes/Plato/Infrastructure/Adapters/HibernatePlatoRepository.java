@@ -16,7 +16,7 @@ public class HibernatePlatoRepository extends HibernateRepository<Plato> impleme
 
     public HibernatePlatoRepository(@Qualifier("session-factory") SessionFactory sessionFactory) {
         super(sessionFactory, Plato.class);
-        System.out.println("HibernatePlatoRepository");
+        //System.out.println("HibernatePlatoRepository");
     }
 
     @Override

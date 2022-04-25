@@ -1,0 +1,21 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain.PlatoInsumo" table="platoinsumo">
+
+        <composite-id name ="insumoID" class="co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain.ValueObjects.InsumoID" access="field">
+            <key-property name="value" column="insumoID" type="string" access="field" />
+        </composite-id>
+
+        <component name="platoID" class="co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain.ValueObjects.PlatoID" access="field">
+            <property name="value" column="platoID" access="field" type="string"/>
+        </component>
+
+        <component name="cantidadNecesaria" class="co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain.ValueObjects.PlatoInsumoCantidadNecesaria" access="field">
+            <property name="value" column="cantidadNecesaria" access="field" type="int"/>
+        </component>
+    </class>
+</hibernate-mapping>

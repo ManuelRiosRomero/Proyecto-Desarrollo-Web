@@ -8,7 +8,7 @@
     <bean id="PlatoRepository" class="co.javeriana.restaurantes.Restaurantes.Plato.Infrastructure.Adapters.HibernatePlatoRepository"/>
     <bean id="EmpleadoRepository" class="co.javeriana.restaurantes.Restaurantes.Empleado.Infrastructure.Adapters.HibernateEmpleadoRepository"/>
     <bean id="FacturaRepository" class="co.javeriana.restaurantes.Restaurantes.Factura.Infrastructure.Adapters.HibernateFacturaRepository"/>
-
+    <bean id="PlatoInsumoRepository" class="co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Infrastucture.Adapters.HibernatePlatoInsumoRepository"/>
     <!--- FINDERS -->
         <!--- INSUMOS -->
     <bean id="InsumoFindAll" class="co.javeriana.restaurantes.Restaurantes.Insumo.Application.FindAll.InsumoFindAll">
@@ -50,6 +50,11 @@
 
     <bean id="FacturaCreate" class="co.javeriana.restaurantes.Restaurantes.Factura.Application.Create.FacturaCreate">
         <constructor-arg ref="FacturaRepository"/>
+    </bean>
+
+    <!--- PLATOINSUMO -->
+    <bean id="PlatoInsumoFindAll" class="co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Application.FindAll.PlatoInsumoFindAll">
+        <constructor-arg ref="PlatoInsumoRepository"/>
     </bean>
 
 
