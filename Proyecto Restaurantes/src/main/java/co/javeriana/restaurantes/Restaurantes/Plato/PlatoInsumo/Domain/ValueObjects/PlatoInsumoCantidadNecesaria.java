@@ -1,6 +1,6 @@
 package co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain.ValueObjects;
 
-import co.javeriana.restaurantes.Restaurantes.Domain.Exceptions.CantidadNegativa;
+//import co.javeriana.restaurantes.Restaurantes.Domain.Exceptions.;
 import co.javeriana.restaurantes.Shared.Domain.Aggregate.IntegerValueObject;
 
 public class PlatoInsumoCantidadNecesaria extends IntegerValueObject {
@@ -17,7 +17,7 @@ public class PlatoInsumoCantidadNecesaria extends IntegerValueObject {
     }
     private void cantidadNoNegativa(Integer value) {
         if (value < 0) {
-            throw new CantidadNegativa("La cantidad de insumos no puede ser negativa");
+            throw new RuntimeException("La cantidad de insumos no puede ser negativa");
         }
     }
 }

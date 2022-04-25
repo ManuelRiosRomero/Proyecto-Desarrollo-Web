@@ -16,7 +16,7 @@ import java.util.List;
 @RestController
 @Tag(name = "Plato", description = "Plato REST API")
 @RequestMapping(value = "/plato")
-public class PlatoInsumoFinderAll {
+public class PlatoInsumoFinderAllController {
 
     @Autowired
     private PlatoInsumoFindAll all;
