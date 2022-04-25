@@ -21,14 +21,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
-                //.addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
+                .addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/empleado/all").permitAll()
                 .antMatchers(HttpMethod.GET, "/insumo/all").permitAll()
                 .antMatchers(HttpMethod.GET, "/insumo/id").permitAll()
                 .antMatchers(HttpMethod.GET, "/plato/all").permitAll()
-                .antMatchers(HttpMethod.GET, AUTH_WHITELIST).permitAll();
-                //.anyRequest().authenticated();
+                .antMatchers(HttpMethod.GET, "/factura/all").permitAll()
+                .antMatchers(HttpMethod.GET, "/ubicacion/all").permitAll()
+                .antMatchers(HttpMethod.GET, AUTH_WHITELIST).permitAll()
+                .anyRequest().authenticated();
+
     }
 
 }

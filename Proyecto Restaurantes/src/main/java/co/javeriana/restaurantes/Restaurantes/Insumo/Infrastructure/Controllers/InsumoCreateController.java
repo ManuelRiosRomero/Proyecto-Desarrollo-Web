@@ -1,14 +1,14 @@
 package co.javeriana.restaurantes.Restaurantes.Insumo.Infrastructure.Controllers;
 
 import co.javeriana.restaurantes.Restaurantes.Insumo.Application.Create.InsumoCreate;
+import co.javeriana.restaurantes.Restaurantes.Insumo.Domain.Exceptions.InsumoNombreInvalido;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
 
 @RestController
 @Tag(name = "Insumo", description = "Insumo REST API")
@@ -23,6 +23,16 @@ public class InsumoCreateController {
         creator.execute(request.getId(), request.getCantidad(), request.getNombre(), request.getCosto(), request.getRestauranteId());
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
     }
+
+    @ExceptionHandler(InsumoNombreInvalido.class)
+    @ResponseStatus(code = HttpStatus.NOT_ACCEPTABLE)
+    public ResponseEntity<HashMap> handleInsumoNombreInvalido(RuntimeException ex){
+        HashMap<String, String> response = new HashMap<>(){{
+            put("error", ex.getMessage());
+        }};
+        return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(response);
+    }
+
 
     static class InsumoCreateRequest {
         private String id;
