@@ -1,6 +1,6 @@
 package co.javeriana.restaurantes.Restaurantes.Plato.Infrastructure.Controllers;
 
-import co.javeriana.restaurantes.Restaurantes.Plato.Application.PlatoCreator.PlatoCreator;
+import co.javeriana.restaurantes.Restaurantes.Plato.Application.Create.PlatoCreate;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 public class PlatoCreateController {
 
     @Autowired
-    private PlatoCreator creator;
+    private PlatoCreate creator;
 
     @PostMapping(value = "/create")
     public ResponseEntity execute(@RequestBody PlatoCreatorRequest request) {

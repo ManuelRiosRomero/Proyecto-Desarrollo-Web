@@ -2,6 +2,7 @@ package co.javeriana.restaurantes.Restaurantes.Insumo.Domain;
 
 import co.javeriana.restaurantes.Restaurantes.Insumo.Domain.ValueObjects.*;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.HashMap;
 
 public class Insumo {
@@ -33,6 +34,11 @@ public class Insumo {
             put("restauranteId",restauranteId.value());
         }};
         return data;
+    }
+
+    public static Insumo create(InsumoID id, InsumoCantidad cantidad, InsumoNombre nombre, InsumoCosto costo, RestauranteID resId) {
+        Insumo insumo = new Insumo(id, cantidad, nombre, costo, resId);
+        return insumo;
     }
 
     private Insumo() {}

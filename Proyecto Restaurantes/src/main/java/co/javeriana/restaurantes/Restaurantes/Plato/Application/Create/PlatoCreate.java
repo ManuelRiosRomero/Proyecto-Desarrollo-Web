@@ -1,14 +1,14 @@
-package co.javeriana.restaurantes.Restaurantes.Plato.Application.PlatoCreator;
+package co.javeriana.restaurantes.Restaurantes.Plato.Application.Create;
 
 import co.javeriana.restaurantes.Restaurantes.Plato.Domain.Plato;
 import co.javeriana.restaurantes.Restaurantes.Plato.Domain.Ports.PlatoRepository;
 import co.javeriana.restaurantes.Restaurantes.Plato.Domain.ValueObjects.*;
 
-public class PlatoCreator {
+public class PlatoCreate {
 
     private PlatoRepository repository;
 
-    public PlatoCreator(PlatoRepository repository) {
+    public PlatoCreate(PlatoRepository repository) {
         this.repository = repository;
     }
 

@@ -13,6 +13,7 @@ public class InsumoCosto extends DoubleValueObject {
 
     private void validate(Double value) {
         cantidadNoNegativa(value);
+        this.value = value;
     }
 
     private void cantidadNoNegativa(Double value) {

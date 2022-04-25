@@ -9,6 +9,7 @@ public class InsumoCantidad extends IntegerValueObject {
 
     public InsumoCantidad(Integer value) {
         validate(value);
+        this.value = value;
     }
 
     private void validate(Integer value) {

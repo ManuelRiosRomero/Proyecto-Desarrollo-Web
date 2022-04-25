@@ -17,13 +17,16 @@
     <bean id="InsumoFindById" class="co.javeriana.restaurantes.Restaurantes.Insumo.Application.FindByID.InsumoFindById">
         <constructor-arg ref="InsumoRepository"/>
     </bean>
+    <bean id="InsumoCreate" class="co.javeriana.restaurantes.Restaurantes.Insumo.Application.Create.InsumoCreate">
+        <constructor-arg ref="InsumoRepository"/>
+    </bean>
 
         <!--- PLATOS -->
     <bean id="PlatoFindAll" class="co.javeriana.restaurantes.Restaurantes.Plato.Application.FindAll.PlatoFindAll">
         <constructor-arg ref="PlatoRepository"/>
     </bean>
 
-    <bean id="PlatoCreator" class="co.javeriana.restaurantes.Restaurantes.Plato.Application.PlatoCreator.PlatoCreator">
+    <bean id="PlatoCreator" class="co.javeriana.restaurantes.Restaurantes.Plato.Application.Create.PlatoCreate">
         <constructor-arg ref="PlatoRepository"/>
     </bean>
 
