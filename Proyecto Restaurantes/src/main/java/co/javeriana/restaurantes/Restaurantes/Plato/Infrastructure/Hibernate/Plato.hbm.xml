@@ -18,6 +18,10 @@
             <property name="value" column="descripcion" access="field" type="string"/>
         </component>
 
+        <component name="resId" class="co.javeriana.restaurantes.Restaurantes.Plato.Domain.ValueObjects.RestauranteID" access="field">
+            <property name="value" column="restauranteid" access="field" type="string"/>
+        </component>
+
         <component name="costo" class="co.javeriana.restaurantes.Restaurantes.Plato.Domain.ValueObjects.PlatoCosto" access="field">
             <property name="value" column="costounitario" access="field" type="double"/>
         </component>

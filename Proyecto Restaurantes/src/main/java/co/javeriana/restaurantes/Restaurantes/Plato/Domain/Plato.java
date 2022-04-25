@@ -1,11 +1,7 @@
 package co.javeriana.restaurantes.Restaurantes.Plato.Domain;
 
-import co.javeriana.restaurantes.Restaurantes.Insumo.Domain.Insumo;
 import co.javeriana.restaurantes.Restaurantes.Plato.Domain.Entities.PlatoInsumo;
-import co.javeriana.restaurantes.Restaurantes.Plato.Domain.ValueObjects.PlatoCosto;
-import co.javeriana.restaurantes.Restaurantes.Plato.Domain.ValueObjects.PlatoDescripcion;
-import co.javeriana.restaurantes.Restaurantes.Plato.Domain.ValueObjects.PlatoID;
-import co.javeriana.restaurantes.Restaurantes.Plato.Domain.ValueObjects.PlatoNombre;
+import co.javeriana.restaurantes.Restaurantes.Plato.Domain.ValueObjects.*;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -16,22 +12,25 @@ public class Plato {
     private PlatoDescripcion descripcion;
     private PlatoCosto costo;
     private Optional<List<PlatoInsumo>> insumosList;
+    private RestauranteID resId;
 
-    public Plato(PlatoID id, PlatoNombre nombre, PlatoDescripcion descripcion, PlatoCosto costo, Optional<List<PlatoInsumo>> insumos) {
+    public Plato(PlatoID id, PlatoNombre nombre, PlatoDescripcion descripcion, PlatoCosto costo, Optional<List<PlatoInsumo>> insumos, RestauranteID resId) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.costo = costo;
         this.insumosList = insumos;
+        this.resId = resId;
     }
 
-    public static Plato create(PlatoID id, PlatoNombre nombre, PlatoDescripcion descripcion, PlatoCosto costo) {
+    public static Plato create(PlatoID id, PlatoNombre nombre, PlatoDescripcion descripcion, PlatoCosto costo, RestauranteID resId) {
         Plato plato = new Plato(
                 id,
                 nombre,
                 descripcion,
                 costo,
-                Optional.empty());
+                Optional.of(new ArrayList<>()),
+                resId);
         return plato;
     }
 
@@ -51,6 +50,7 @@ public class Plato {
             put("costo", costo.value());
             put("descripcion", descripcion.value());
             put("insumos", createInsumos());
+            put("resId", resId.value());
         }};
         return data;
     }

@@ -23,6 +23,10 @@
         <constructor-arg ref="PlatoRepository"/>
     </bean>
 
+    <bean id="PlatoCreator" class="co.javeriana.restaurantes.Restaurantes.Plato.Application.PlatoCreator.PlatoCreator">
+        <constructor-arg ref="PlatoRepository"/>
+    </bean>
+
     <!-- EMPLEADOS -->
     <bean id="EmpleadoFindAll" class="co.javeriana.restaurantes.Restaurantes.Empleado.Application.FindAll.EmpleadoFindAll">
         <constructor-arg ref="EmpleadoRepository"/>

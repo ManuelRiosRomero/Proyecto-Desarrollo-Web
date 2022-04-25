@@ -9,6 +9,7 @@ public class PlatoCosto extends DoubleValueObject {
 
     public PlatoCosto(Double value) {
         validate(value);
+        this.value = value;
     }
 
     private void validate(Double value) {
