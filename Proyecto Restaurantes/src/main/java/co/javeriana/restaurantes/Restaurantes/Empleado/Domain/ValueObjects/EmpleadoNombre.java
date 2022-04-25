@@ -1,6 +1,6 @@
 package co.javeriana.restaurantes.Restaurantes.Empleado.Domain.ValueObjects;
 
-import co.javeriana.restaurantes.Restaurantes.Domain.Exceptions.EmpleadoNombreInvalido;
+import co.javeriana.restaurantes.Restaurantes.Empleado.Domain.Exceptions.EmpleadoNombreInvalido;
 import co.javeriana.restaurantes.Shared.Domain.Aggregate.StringValueObject;
 
 public class EmpleadoNombre extends StringValueObject {

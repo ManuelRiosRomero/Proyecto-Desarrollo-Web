@@ -1,12 +1,16 @@
 package co.javeriana.restaurantes.Restaurantes.Plato.Infrastructure.Controllers;
 
 import co.javeriana.restaurantes.Restaurantes.Plato.Application.Create.PlatoCreate;
+import co.javeriana.restaurantes.Restaurantes.Plato.Domain.Exceptions.CantidadNegativa;
+import co.javeriana.restaurantes.Restaurantes.Plato.Domain.Exceptions.PlatoNombreInvalido;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
 
 
 @RestController
@@ -21,6 +25,24 @@ public class PlatoCreateController {
     public ResponseEntity execute(@RequestBody PlatoCreatorRequest request) {
         creator.execute(request.getId(), request.getNombre(), request.getDescripcion(), request.getCosto(), request.getResId());
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
+    }
+
+    @ExceptionHandler(PlatoNombreInvalido.class)
+    @ResponseStatus(code = HttpStatus.NOT_ACCEPTABLE)
+    public ResponseEntity<HashMap> handlePlatoNombreInvalido(RuntimeException ex){
+        HashMap<String, String> response = new HashMap<>(){{
+            put("error", ex.getMessage());
+        }};
+        return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(response);
+    }
+
+    @ExceptionHandler(CantidadNegativa.class)
+    @ResponseStatus(code = HttpStatus.NOT_ACCEPTABLE)
+    public ResponseEntity<HashMap> handleCantidadNegativa(RuntimeException ex){
+        HashMap<String, String> response = new HashMap<>(){{
+            put("error", ex.getMessage());
+        }};
+        return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(response);
     }
 
     static class PlatoCreatorRequest {

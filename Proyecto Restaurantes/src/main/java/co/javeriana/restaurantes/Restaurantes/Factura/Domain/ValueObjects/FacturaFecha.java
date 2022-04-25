@@ -1,7 +1,6 @@
 package co.javeriana.restaurantes.Restaurantes.Factura.Domain.ValueObjects;
 
-import co.javeriana.restaurantes.Restaurantes.Domain.Exceptions.FechaIngresoInvalida;
-import co.javeriana.restaurantes.Shared.Domain.Aggregate.DateTimeValueObject;
+import co.javeriana.restaurantes.Restaurantes.Factura.Domain.Exceptions.FechaIngresoInvalida;
 import co.javeriana.restaurantes.Shared.Domain.Aggregate.StringValueObject;
 
 import java.time.DateTimeException;

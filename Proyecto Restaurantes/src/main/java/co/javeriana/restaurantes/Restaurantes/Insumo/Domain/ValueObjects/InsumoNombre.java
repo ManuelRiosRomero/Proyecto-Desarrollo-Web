@@ -1,6 +1,6 @@
 package co.javeriana.restaurantes.Restaurantes.Insumo.Domain.ValueObjects;
 
-import co.javeriana.restaurantes.Restaurantes.Domain.Exceptions.InsumoNombreInvalido;
+import co.javeriana.restaurantes.Restaurantes.Insumo.Domain.Exceptions.InsumoNombreInvalido;
 import co.javeriana.restaurantes.Shared.Domain.Aggregate.StringValueObject;
 
 public class InsumoNombre extends StringValueObject {

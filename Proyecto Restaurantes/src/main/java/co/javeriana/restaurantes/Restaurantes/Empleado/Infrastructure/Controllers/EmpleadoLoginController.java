@@ -2,6 +2,7 @@ package co.javeriana.restaurantes.Restaurantes.Empleado.Infrastructure.Controlle
 
 import co.javeriana.restaurantes.Restaurantes.Empleado.Application.Login.EmpleadoLogin;
 import co.javeriana.restaurantes.Restaurantes.Empleado.Domain.Exceptions.AuthenticateFailed;
+import co.javeriana.restaurantes.Restaurantes.Empleado.Domain.Exceptions.NoType;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,6 +33,7 @@ public class EmpleadoLoginController {
         }};
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
     }
+
 
     static class EmpleadoLoginRequest {
         private String cedula;

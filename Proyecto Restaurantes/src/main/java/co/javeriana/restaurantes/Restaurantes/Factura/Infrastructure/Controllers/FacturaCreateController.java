@@ -1,15 +1,16 @@
 package co.javeriana.restaurantes.Restaurantes.Factura.Infrastructure.Controllers;
 
 import co.javeriana.restaurantes.Restaurantes.Factura.Application.Create.FacturaCreate;
+import co.javeriana.restaurantes.Restaurantes.Factura.Domain.Exceptions.FechaIngresoInvalida;
+import co.javeriana.restaurantes.Restaurantes.Plato.Domain.Exceptions.CantidadNegativa;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
 
 @RestController
 @Tag(name = "Factura", description = "Factura REST API")
@@ -23,6 +24,24 @@ public class FacturaCreateController {
     public ResponseEntity execute(@RequestBody FacturaCreatorRequest request) {
         creator.execute(request.getId(), request.getValor(), request.getFecha(), request.getPropina(), request.getResId());
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
+    }
+
+    @ExceptionHandler(CantidadNegativa.class)
+    @ResponseStatus(code = HttpStatus.NOT_ACCEPTABLE)
+    public ResponseEntity<HashMap> handleCantidadNegativa(RuntimeException ex){
+        HashMap<String, String> response = new HashMap<>(){{
+            put("error", ex.getMessage());
+        }};
+        return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(response);
+    }
+
+    @ExceptionHandler(FechaIngresoInvalida.class)
+    @ResponseStatus(code = HttpStatus.NOT_ACCEPTABLE)
+    public ResponseEntity<HashMap> handleFechaIngresoInvalida(RuntimeException ex){
+        HashMap<String, String> response = new HashMap<>(){{
+            put("error", ex.getMessage());
+        }};
+        return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(response);
     }
 
     static class FacturaCreatorRequest {

@@ -1,6 +1,6 @@
 package co.javeriana.restaurantes.Restaurantes.Plato.Domain.ValueObjects;
 
-import co.javeriana.restaurantes.Restaurantes.Domain.Exceptions.CantidadNegativa;
+import co.javeriana.restaurantes.Restaurantes.Factura.Domain.Exceptions.CantidadNegativa;
 import co.javeriana.restaurantes.Shared.Domain.Aggregate.DoubleValueObject;
 
 public class PlatoCosto extends DoubleValueObject {
