@@ -110,7 +110,6 @@
         <constructor-arg ref="DomainEventJsonDeserializer" />
     </bean>
 
-
     <!--- Eventos declarados -->
     <bean id="AddPlatoInsumoOnCreatedPlatoInsumo" class="co.javeriana.restaurantes.Restaurantes.Plato.Infrastructure.Listeners.AddPlatoInsumoOnCreatedPlatoInsumo" >
         <constructor-arg ref="PlatoAddPlatoInsumo"></constructor-arg>

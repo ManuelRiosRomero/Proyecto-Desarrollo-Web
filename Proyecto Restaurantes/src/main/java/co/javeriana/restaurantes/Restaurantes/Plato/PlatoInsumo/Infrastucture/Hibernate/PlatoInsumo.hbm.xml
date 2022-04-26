@@ -6,16 +6,13 @@
 <hibernate-mapping>
     <class name="co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain.PlatoInsumo" table="platoinsumo">
 
-        <composite-id name ="insumoID" class="co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain.ValueObjects.InsumoID" access="field">
-            <key-property name="value" column="insumoID" type="string" access="field" />
+        <composite-id name ="platoInsumoID" class="co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain.ValueObjects.PlatoInsumoIdentity" access="field">
+            <key-property name="insumoid" column="insumoID" type="string" access="field" />
+            <key-property name="platoid" column="platoID" type="string" access="field" />
         </composite-id>
 
         <component name="nombreinsumo" class="co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain.ValueObjects.PlatoInsumoNombre" access="field">
             <property name="value" column="nombreinsumo" access="field" type="string"/>
-        </component>
-
-        <component name="platoID" class="co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain.ValueObjects.PlatoID" access="field">
-            <property name="value" column="platoID" access="field" type="string"/>
         </component>
 
         <component name="cantidadNecesaria" class="co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain.ValueObjects.PlatoInsumoCantidadNecesaria" access="field">

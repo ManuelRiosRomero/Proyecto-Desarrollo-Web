@@ -10,10 +10,8 @@ public final class AddPlatoInsumoOnCreatedPlatoInsumo {
         this.adder = adder;
     }
 
-
     public void on(PlatoInsumoCreatedDomainEvent event) {
-
-        adder.execute(event.getIdplato(), event.getId(), event.getCantidadnecesaria(),event.getNombre());
+        adder.execute(event.getIdplato(), event.aggregateId(), event.getCantidadnecesaria(),event.getNombre());
 
     }
 }

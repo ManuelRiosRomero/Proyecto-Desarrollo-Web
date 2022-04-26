@@ -5,6 +5,8 @@ import co.javeriana.restaurantes.Restaurantes.Plato.Domain.Plato;
 import co.javeriana.restaurantes.Restaurantes.Plato.Domain.Ports.PlatoRepository;
 import co.javeriana.restaurantes.Restaurantes.Plato.Domain.ValueObjects.PlatoID;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Optional;
 
 public class PlatoAddPlatoInsumo {
@@ -19,6 +21,7 @@ public class PlatoAddPlatoInsumo {
         if(optionalPlato.isPresent()) {
             //Agregar insumo al plato
             Plato plato = optionalPlato.get();
+            //List<HashMap<String, Object>> insumos = plato.createInsumos();
             plato.addInsumo(new PlatoInsumo(insumoid, cantidadnecesaria, nombreinsumo));
             this.repository.update(plato);
         }

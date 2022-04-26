@@ -39,7 +39,17 @@ public class Plato {
         if (insumosList.isPresent()) {
             platosinsumos = insumosList.get();
         }
-        platosinsumos.add(platoInsumo);
+       //Find if the insumo is already in the list
+        Optional<PlatoInsumo> insumo = platosinsumos.stream().filter(ins -> ins.data().get("id").equals(platoInsumo.data().get("id"))).findFirst();
+        //If not present, add it
+        if (!insumo.isPresent()) {
+            platosinsumos.add(platoInsumo);
+        }
+        else //delete the old one and add the new one
+        {
+            platosinsumos.remove(insumo.get());
+            platosinsumos.add(platoInsumo);
+        }
         this.insumosList=Optional.ofNullable(platosinsumos);
     }
 
@@ -55,7 +65,7 @@ public class Plato {
         return data;
     }
 
-    private List<HashMap<String, Object>> createInsumos() {
+    public List<HashMap<String, Object>> createInsumos() {
         List<HashMap<String, Object>> list = new ArrayList<>();
         if (!insumosList.isEmpty()) {
             list = insumosList.get().stream().map(insumo -> insumo.data()).collect(Collectors.toList());
