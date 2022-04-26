@@ -116,4 +116,8 @@
         <constructor-arg ref="PlatoAddPlatoInsumo"></constructor-arg>
     </bean>
 
+    <bean id="AddPlatoOnCreatePlatoFactura" class="co.javeriana.restaurantes.Restaurantes.Factura.Infrastructure.Listeners.AddPlatoOnCreatePlatoFactura">
+
+    </bean>
+
 </beans>

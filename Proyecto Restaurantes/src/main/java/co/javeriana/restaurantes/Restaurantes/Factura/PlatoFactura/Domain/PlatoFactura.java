@@ -6,6 +6,7 @@ import co.javeriana.restaurantes.Shared.Domain.Aggregate.AggregateRoot;
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class PlatoFactura extends AggregateRoot implements Serializable {
 
@@ -35,19 +36,38 @@ public class PlatoFactura extends AggregateRoot implements Serializable {
 
     public static PlatoFactura create(String facturaID, String platoID, PlatoFacturaNombre nombre, PlatoFacturaCantidad cantidad, PlatoFacturaPrecio precio) {
         PlatoFactura platoFactura = new PlatoFactura(facturaID, platoID, nombre, cantidad, precio);
-        platoFactura.record(new PlatoFacturaCreatedDomainEvent(facturaID, nombre.value(), cantidad.value(), precio.value()));
+        platoFactura.record(
+                new PlatoFacturaCreatedDomainEvent(
+                        platoID,
+                        facturaID,
+                        nombre.value(),
+                        cantidad.value(),
+                        precio.value()
+        ));
         return platoFactura;
     }
 
     public HashMap<String, Object> data() {
         HashMap<String, Object> data = new HashMap<>();
-        data.put("id", facturaID);
         data.put("nombre", nombre.value());
         data.put("facturaID", facturaID);
         data.put("platoID", platoID);
         data.put("cantidad", cantidad.value());
         data.put("precio", precio.value());
         return data;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PlatoFactura that = (PlatoFactura) o;
+        return Objects.equals(facturaID, that.facturaID) && Objects.equals(platoID, that.platoID) && Objects.equals(nombre, that.nombre) && Objects.equals(cantidad, that.cantidad) && Objects.equals(precio, that.precio);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(facturaID, platoID, nombre, cantidad, precio);
     }
 
     private PlatoFactura(){}

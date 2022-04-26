@@ -8,7 +8,7 @@ import java.util.Objects;
 
 public class PlatoFacturaCreatedDomainEvent extends DomainEvent {
 
-    private String id;
+    private String facturaId;
     private String nombre;
     private int cantidad;
     private double precio;
@@ -17,31 +17,24 @@ public class PlatoFacturaCreatedDomainEvent extends DomainEvent {
         super(null);
     }
 
-    public PlatoFacturaCreatedDomainEvent(String aggregateId, String id, String nombre, int cantidad, double precio) {
+    public PlatoFacturaCreatedDomainEvent(String aggregateId, String facturaId, String nombre, int cantidad, double precio) {
         super(aggregateId);
-        this.id = id;
+        this.facturaId = facturaId;
         this.nombre = nombre;
         this.cantidad = cantidad;
         this.precio = precio;
     }
 
-    public PlatoFacturaCreatedDomainEvent(String aggregateId, String eventId, String occurredOn, String id, String nombre, int cantidad, double precio) {
+    public PlatoFacturaCreatedDomainEvent(String aggregateId, String eventId, String occurredOn, String facturaId, String nombre, int cantidad, double precio) {
         super(aggregateId, eventId, occurredOn);
-        this.id = id;
+        this.facturaId = facturaId;
         this.nombre = nombre;
         this.cantidad = cantidad;
         this.precio = precio;
     }
 
-    public PlatoFacturaCreatedDomainEvent(String id, String nombre, int cantidad, double precio) {
-        this.id = id;
-        this.nombre = nombre;
-        this.cantidad = cantidad;
-        this.precio = precio;
-    }
-
-    public String getId() {
-        return id;
+    public String getFacturaId() {
+        return facturaId;
     }
 
     public String getNombre() {
@@ -64,7 +57,7 @@ public class PlatoFacturaCreatedDomainEvent extends DomainEvent {
     @Override
     public HashMap<String, Serializable> toPrimitive() {
         return new HashMap<>(){{
-            put("id", id);
+            put("facturaID", facturaId);
             put("nombre", nombre);
             put("cantidad", cantidad);
             put("precio", precio);
@@ -73,8 +66,8 @@ public class PlatoFacturaCreatedDomainEvent extends DomainEvent {
 
     @Override
     public DomainEvent fromPrimitive(String aggregateId, HashMap<String, Serializable> body, String eventId, String occurredOn) {
-        return new PlatoFacturaCreatedDomainEvent(aggregateId, eventId, occurredOn,
-                (String) body.get("id"), (String) body.get("nombre"), (int) body.get("cantidad"), (double) body.get("precio"));
+        return new PlatoFacturaCreatedDomainEvent(aggregateId, eventId, occurredOn, (String) body.get("facturaID"),
+                (String) body.get("nombre"), (int) body.get("cantidad"), (double) body.get("precio"));
     }
 
     @Override
@@ -82,11 +75,11 @@ public class PlatoFacturaCreatedDomainEvent extends DomainEvent {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PlatoFacturaCreatedDomainEvent that = (PlatoFacturaCreatedDomainEvent) o;
-        return cantidad == that.cantidad && Double.compare(that.precio, precio) == 0 && Objects.equals(id, that.id) && Objects.equals(nombre, that.nombre);
+        return cantidad == that.cantidad && Double.compare(that.precio, precio) == 0 && Objects.equals(facturaId, that.facturaId) && Objects.equals(nombre, that.nombre);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nombre, cantidad, precio);
+        return Objects.hash(facturaId, nombre, cantidad, precio);
     }
 }
