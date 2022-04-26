@@ -34,7 +34,7 @@ public class PlatoInsumo extends AggregateRoot {
             //Crear Evento de Dominio PLatoInsumoCreated
         platoInsumo.record(new PlatoInsumoCreatedDomainEvent
                 (insumoID.value(),insumoID.value(),
-                        nombreinsumo.value(), cantidadNecesaria.value()));
+                        nombreinsumo.value(), cantidadNecesaria.value(),platoID.value()));
 
 
             return platoInsumo;

@@ -30,6 +30,10 @@
         <constructor-arg ref="PlatoRepository"/>
     </bean>
 
+    <bean id="PlatoAddPlatoInsumo" class="co.javeriana.restaurantes.Restaurantes.Plato.Application.AddPlatoInsumo.PlatoAddPlatoInsumo">
+        <constructor-arg ref="PlatoRepository"/>
+    </bean>
+
     <!--- PLATOINSUMO -->
     <bean id="PlatoInsumoFindAll" class="co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Application.FindAll.PlatoInsumoFindAll">
         <constructor-arg ref="PlatoInsumoRepository"/>
@@ -83,6 +87,17 @@
 
     <bean id="DomainEventJsonDeserializer" class="co.javeriana.restaurantes.Shared.Infrastructure.RabbitMQ.Serializable.DomainEventJsonDeserializer" >
         <constructor-arg ref="DomainEventInformation"/>
+    </bean>
+
+    <bean id="RabbitMqDomainEventsConsumer" class="co.javeriana.restaurantes.Shared.Infrastructure.RabbitMQ.RabbitMqDomainEventsConsumer" >
+        <constructor-arg ref="DomainEventInformation" />
+        <constructor-arg ref="DomainEventJsonDeserializer" />
+    </bean>
+
+
+    <!--- Eventos declarados -->
+    <bean id="AddPlatoInsumoOnCreatedPlatoInsumo" class="co.javeriana.restaurantes.Restaurantes.Plato.Infrastructure.Listeners.AddPlatoInsumoOnCreatedPlatoInsumo" >
+        <constructor-arg ref="PlatoAddPlatoInsumo"></constructor-arg>
     </bean>
 
 </beans>
