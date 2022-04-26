@@ -9,7 +9,10 @@ public interface PlatoInsumoRepository {
 
     void save(PlatoInsumo platoInsumo);
     void update(PlatoInsumo platoInsumo);
+
     Optional<List<PlatoInsumo>> findByPlatoId(String platoID);
+    Optional<List<PlatoInsumo>> findByPlatoIdAndInsumoID(String platoID, String insumoID);
+
     Optional<List<PlatoInsumo>> findByInsumoId(String insumoID);
     Optional<List<PlatoInsumo>> all();
     void delete(PlatoInsumo platoInsumo);
