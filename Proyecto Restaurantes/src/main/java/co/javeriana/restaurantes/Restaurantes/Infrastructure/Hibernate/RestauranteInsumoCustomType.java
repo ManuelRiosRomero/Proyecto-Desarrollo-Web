@@ -46,7 +46,7 @@ public class RestauranteInsumoCustomType implements UserType {
             if(value.isPresent()){
                 //Lista de JSON con los objetos
                 List<HashMap<String, Object>> objects = new ObjectMapper().readValue(value.get(), List.class);
-                System.out.println("JSON con los objetos: " );
+                System.out.println("JSON con los objetos: " + objects);
                 System.out.println(objects);
                 response = objects.stream().map(element -> new InsumoRestaurante(
                         (String) element.get("id"),

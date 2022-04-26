@@ -10,10 +10,12 @@
             <key-property name="value" column="restauranteID" access="field" length="36"/>
         </composite-id>
 
+
         <property name="insumos" column="insumosInventario" access="field">
             <type name="co.javeriana.restaurantes.Restaurantes.Infrastructure.Hibernate.RestauranteInsumoCustomType">
             </type>
         </property>
+
 
     </class>
 </hibernate-mapping>
