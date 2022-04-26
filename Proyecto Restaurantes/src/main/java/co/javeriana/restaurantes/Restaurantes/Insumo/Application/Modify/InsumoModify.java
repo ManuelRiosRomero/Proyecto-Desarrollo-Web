@@ -21,13 +21,13 @@ public class InsumoModify {
     }
 
     public Insumo execute(String id, int cantidad) {
-        Insumo insumo = null;
+        Insumo insumos = null;
         Optional<Insumo> optionalInsumo = repository.find(new InsumoID(id));
         if(optionalInsumo.isPresent()){
-            insumo = optionalInsumo.get();
-          //--
+            insumos = optionalInsumo.get();
+            insumos.data().put("cantidad",cantidad);
         }
-        return insumo;
+        return insumos;
     }
 
 }
