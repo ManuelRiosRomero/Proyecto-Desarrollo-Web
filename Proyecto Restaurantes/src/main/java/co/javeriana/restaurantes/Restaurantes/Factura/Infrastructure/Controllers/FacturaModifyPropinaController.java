@@ -18,7 +18,7 @@ import java.util.HashMap;
 public class FacturaModifyPropinaController {
     @Autowired
     private FacturaModifyPropina modifyPropina;
-    @GetMapping(value = "/modifyP")
+    @GetMapping(value = "/modify")
     public ResponseEntity<HashMap<String, Object>> execute(@RequestBody FacturaCalculateTotalController.facturaCalculateTotalRequest request) {
         return null;
     }
