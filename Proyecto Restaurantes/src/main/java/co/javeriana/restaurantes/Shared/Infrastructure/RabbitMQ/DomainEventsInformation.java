@@ -1,6 +1,7 @@
 package co.javeriana.restaurantes.Shared.Infrastructure.RabbitMQ;
 
 import co.javeriana.restaurantes.Restaurantes.Factura.PlatoFactura.Domain.DomainEvents.PlatoFacturaCreatedDomainEvent;
+import co.javeriana.restaurantes.Restaurantes.Insumo.Domain.DomainEvents.InsumoCreatedDomainEvent;
 import co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain.DomainEvents.PlatoInsumoCreatedDomainEvent;
 import co.javeriana.restaurantes.Shared.Domain.Bus.Event.DomainEvent;
 
@@ -23,6 +24,11 @@ public class DomainEventsInformation {
         //factura.plato.add
         indexedDomainEvent.put("add.platofactura", PlatoFacturaCreatedDomainEvent.class);
         domainEventSubscribers.put("restaurantSystem.restaurantes.factura.platofactura.add.platofactura", "AddPlatoOnCreatePlatoFactura");
+
+        //insumo.add
+        indexedDomainEvent.put("add.insumo", InsumoCreatedDomainEvent.class);
+        domainEventSubscribers.put("restaurantsSystem.restaurantes.insumo.add.insumo", "AddInsumoOnCreatedInsumo");
+
     }
 
     public Class<? extends DomainEvent> getDomainEvent(String name) {

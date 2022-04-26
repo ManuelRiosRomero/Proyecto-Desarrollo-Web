@@ -1,11 +1,10 @@
 package co.javeriana.restaurantes.CadenaRestaurantes.Cadena.Domain;
 
 
-import co.javeriana.restaurantes.CadenaRestaurantes.Cadena.Domain.Exceptions.CadenaNombreInvalido;
 import co.javeriana.restaurantes.CadenaRestaurantes.Cadena.Domain.ValueObjects.CadenaID;
 import co.javeriana.restaurantes.CadenaRestaurantes.Cadena.Domain.ValueObjects.CadenaNombreEmpresarial;
 import co.javeriana.restaurantes.CadenaRestaurantes.Cadena.Domain.ValueObjects.CadenaNumeroContacto;
-import co.javeriana.restaurantes.Restaurantes.Domain.SedeRestaurante;
+import co.javeriana.restaurantes.Restaurantes.Domain.Restaurante;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,12 +14,12 @@ import java.util.stream.Collectors;
 
 public class Cadena {
     private CadenaID id;
-    private Optional<List<SedeRestaurante>> restaurantes;
+    private Optional<List<Restaurante>> restaurantes;
     private CadenaNombreEmpresarial nombre;
     private CadenaNumeroContacto numero;
 
 
-    public Cadena(CadenaID id, Optional<List<SedeRestaurante>> restaurantes, CadenaNombreEmpresarial nombre, CadenaNumeroContacto numero) {
+    public Cadena(CadenaID id, Optional<List<Restaurante>> restaurantes, CadenaNombreEmpresarial nombre, CadenaNumeroContacto numero) {
         this.id = id;
         this.restaurantes = restaurantes;
         this.nombre = nombre;
@@ -46,7 +45,7 @@ public class Cadena {
     private List<HashMap<String, Object>> createRestaurante() {
         List<HashMap<String, Object>> list = new ArrayList<>();
         if (!restaurantes.isEmpty()) {
-            list = restaurantes.get().stream().map(sedeRestaurante -> sedeRestaurante.data()).collect(Collectors.toList());
+            list = restaurantes.get().stream().map(restaurante -> restaurante.data()).collect(Collectors.toList());
         }
         return list;
     }

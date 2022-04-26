@@ -7,8 +7,8 @@
     <class name="co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain.PlatoInsumo" table="platoinsumo">
 
         <composite-id name ="platoInsumoID" class="co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain.ValueObjects.PlatoInsumoIdentity" access="field">
-            <key-property name="insumoid" column="insumoID" type="string" access="field" />
             <key-property name="platoid" column="platoID" type="string" access="field" />
+            <key-property name="insumoid" column="insumoID" type="string" access="field" />
         </composite-id>
 
         <component name="nombreinsumo" class="co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain.ValueObjects.PlatoInsumoNombre" access="field">

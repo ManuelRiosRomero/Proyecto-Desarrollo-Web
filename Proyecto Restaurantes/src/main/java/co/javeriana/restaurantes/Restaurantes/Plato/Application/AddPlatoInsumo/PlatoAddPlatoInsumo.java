@@ -21,7 +21,6 @@ public class PlatoAddPlatoInsumo {
         if(optionalPlato.isPresent()) {
             //Agregar insumo al plato
             Plato plato = optionalPlato.get();
-            //List<HashMap<String, Object>> insumos = plato.createInsumos();
             plato.addInsumo(new PlatoInsumo(insumoid, cantidadnecesaria, nombreinsumo));
             this.repository.update(plato);
         }

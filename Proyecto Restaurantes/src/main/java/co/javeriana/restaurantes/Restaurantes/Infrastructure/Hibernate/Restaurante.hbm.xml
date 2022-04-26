@@ -1,0 +1,19 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="co.javeriana.restaurantes.Restaurantes.Domain.Restaurante" table="restaurante">
+
+        <composite-id name="id" class="co.javeriana.restaurantes.Restaurantes.Domain.ValueObjects.RestauranteID" access="field">
+            <key-property name="value" column="restauranteID" access="field" length="36"/>
+        </composite-id>
+
+        <property name="insumos" column="insumosInventario" access="field">
+            <type name="co.javeriana.restaurantes.Restaurantes.Infrastructure.Hibernate.RestauranteInsumoCustomType">
+            </type>
+        </property>
+
+    </class>
+</hibernate-mapping>

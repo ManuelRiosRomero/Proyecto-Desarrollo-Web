@@ -68,8 +68,8 @@ public class InsumoCreatedDomainEvent extends DomainEvent {
     @Override
     public HashMap<String, Serializable> toPrimitive() {
         return new HashMap<String, Serializable>() {{
-            put("cantidad", cantidad);
             put("nombre", nombre);
+            put("cantidad", cantidad);
             put("costo", costo);
             put("restauranteId", restauranteId);
         }};

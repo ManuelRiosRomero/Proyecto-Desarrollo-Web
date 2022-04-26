@@ -34,7 +34,6 @@ public class Insumo extends AggregateRoot {
         return data;
     }
 
-    //TODO Create INSUMO DOMAIN EVENT
     public static Insumo create(InsumoID id, InsumoCantidad cantidad, InsumoNombre nombre, InsumoCosto costo, RestauranteID resId) {
         Insumo insumo = new Insumo(id, cantidad, nombre, costo, resId);
         insumo.record(new InsumoCreatedDomainEvent(id.value(), cantidad.value(), nombre.value(), costo.value(), resId.value()));

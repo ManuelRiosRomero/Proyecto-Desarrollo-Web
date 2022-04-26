@@ -4,13 +4,25 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!--- REPOSITORIES -->
+    <bean id="RestauranteRepository" class="co.javeriana.restaurantes.Restaurantes.Infrastructure.Adapters.HibernateRestauranteRepository"/>
     <bean id="InsumoRepository" class="co.javeriana.restaurantes.Restaurantes.Insumo.Infrastructure.Adapters.HibernateInsumoRepository"/>
     <bean id="PlatoRepository" class="co.javeriana.restaurantes.Restaurantes.Plato.Infrastructure.Adapters.HibernatePlatoRepository"/>
     <bean id="EmpleadoRepository" class="co.javeriana.restaurantes.Restaurantes.Empleado.Infrastructure.Adapters.HibernateEmpleadoRepository"/>
     <bean id="FacturaRepository" class="co.javeriana.restaurantes.Restaurantes.Factura.Infrastructure.Adapters.HibernateFacturaRepository"/>
     <bean id="PlatoInsumoRepository" class="co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Infrastucture.Adapters.HibernatePlatoInsumoRepository"/>
     <bean id="PlatoFacturaRepository" class="co.javeriana.restaurantes.Restaurantes.Factura.PlatoFactura.Infrastructure.Adapters.HibernatePlatoFacturaRepository"/>
+
     <!--- FINDERS -->
+
+        <!--- RESTAURANTES -->
+    <bean id="RestauranteFindAll" class="co.javeriana.restaurantes.Restaurantes.Application.FindAll.RestauranteFindAll">
+        <constructor-arg ref="RestauranteRepository"/>
+    </bean>
+
+    <bean id="RestauranteAddInsumo" class="co.javeriana.restaurantes.Restaurantes.Application.AddInsumo.RestauranteAddInsumo">
+        <constructor-arg ref="RestauranteRepository"/>
+    </bean>
+
         <!--- INSUMOS -->
     <bean id="InsumoFindAll" class="co.javeriana.restaurantes.Restaurantes.Insumo.Application.FindAll.InsumoFindAll">
         <constructor-arg ref="InsumoRepository"/>
@@ -36,6 +48,11 @@
 
     <bean id="PlatoAddPlatoInsumo" class="co.javeriana.restaurantes.Restaurantes.Plato.Application.AddPlatoInsumo.PlatoAddPlatoInsumo">
         <constructor-arg ref="PlatoRepository"/>
+    </bean>
+
+    <bean id="PlatoUpdateAllPlatos" class="co.javeriana.restaurantes.Restaurantes.Plato.Application.Update.PlatoUpdateAllPlatosTable">
+        <constructor-arg ref="PlatoRepository"/>
+        <constructor-arg ref="PlatoInsumoRepository"/>
     </bean>
 
     <!--- PLATOINSUMO -->
@@ -125,6 +142,10 @@
 
     <bean id="AddPlatoOnCreatePlatoFactura" class="co.javeriana.restaurantes.Restaurantes.Factura.Infrastructure.Listeners.AddPlatoOnCreatePlatoFactura">
         <constructor-arg ref = "FacturaAddPlato"></constructor-arg>
+    </bean>
+
+    <bean id="AddInsumoOnCreatedInsumo" class="co.javeriana.restaurantes.Restaurantes.Infrastructure.Listeners.AddInsumoOnCreatedInsumo">
+        <constructor-arg ref="RestauranteAddInsumo"></constructor-arg>
     </bean>
 
 </beans>

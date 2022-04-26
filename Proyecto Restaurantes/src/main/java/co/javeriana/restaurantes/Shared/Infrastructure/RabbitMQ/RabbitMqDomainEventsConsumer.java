@@ -32,6 +32,7 @@ public class RabbitMqDomainEventsConsumer {
         String queueName = message.getMessageProperties().getConsumerQueue();
         Object subscriber = this.subscriberFor(queueName);
         try {
+            System.out.println("Llego un evento de dominio: " + domainEvent.getClass().getSimpleName());
             Method subscriberOnMethod = subscriber.getClass().getMethod("on", domainEvent.getClass());
             subscriberOnMethod.invoke(subscriber, domainEvent);
         }

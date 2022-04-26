@@ -2,6 +2,7 @@ package co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Infrastucture.A
 
 import co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain.PlatoInsumo;
 import co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain.Ports.PlatoInsumoRepository;
+import co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain.ValueObjects.PlatoID;
 import co.javeriana.restaurantes.Shared.Infrastructure.Hibernate.HibernateRepository;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -33,7 +34,7 @@ public class HibernatePlatoInsumoRepository extends HibernateRepository<PlatoIns
 
 
     @Override
-    public Optional<List<PlatoInsumo>> findByPlatoId(String platoID) {
+    public Optional<List<PlatoInsumo>> findByPlatoId(PlatoID platoID) {
         CriteriaBuilder cb = sessionFactory.getCriteriaBuilder();
         CriteriaQuery<PlatoInsumo> cr = cb.createQuery(PlatoInsumo.class);
         Root<PlatoInsumo> root = cr.from(PlatoInsumo.class);
