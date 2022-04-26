@@ -30,7 +30,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/insumo/all").permitAll()
                 .antMatchers(HttpMethod.POST, "/insumo/create").permitAll()
                 .antMatchers(HttpMethod.GET, "/insumo/id").permitAll()
-                .antMatchers(HttpMethod.GET, "/insumo/modify").permitAll()
+                .antMatchers(HttpMethod.POST, "/insumo/modify").permitAll()
 
                 .antMatchers(HttpMethod.GET, "/plato/all").permitAll()
                 .antMatchers(HttpMethod.POST, "/plato/update/all").permitAll()
@@ -44,7 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/factura/total").permitAll()
 
                 .antMatchers(HttpMethod.GET, "/restaurante/all").permitAll()
-                .antMatchers(HttpMethod.GET, "/factura/modify").permitAll()
+                .antMatchers(HttpMethod.POST, "/factura/modify").permitAll()
                 .antMatchers(HttpMethod.GET, AUTH_WHITELIST).permitAll()
                 .anyRequest().authenticated();
 
