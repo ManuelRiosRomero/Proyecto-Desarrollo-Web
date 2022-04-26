@@ -1,6 +1,5 @@
 package co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain;
 
-import co.javeriana.restaurantes.Restaurantes.Insumo.Domain.Insumo;
 import co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain.DomainEvents.PlatoInsumoCreatedDomainEvent;
 import co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain.ValueObjects.PlatoID;
 import co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain.ValueObjects.InsumoID;

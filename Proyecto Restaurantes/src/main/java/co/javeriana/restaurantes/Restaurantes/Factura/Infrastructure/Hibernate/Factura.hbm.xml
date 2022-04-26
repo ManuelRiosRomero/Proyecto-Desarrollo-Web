@@ -28,11 +28,5 @@
             <property name="value" column="completado" access="field" type="boolean"/>
         </component>
 
-        <property name="platos" column="platosOrdenados" access="field">
-            <type name="co.javeriana.restaurantes.Restaurantes.Factura.Infrastructure.Hibernate.FacturaPlatoCustomType">
-            </type>
-        </property>
-
-
     </class>
 </hibernate-mapping>
