@@ -9,6 +9,7 @@
     <bean id="EmpleadoRepository" class="co.javeriana.restaurantes.Restaurantes.Empleado.Infrastructure.Adapters.HibernateEmpleadoRepository"/>
     <bean id="FacturaRepository" class="co.javeriana.restaurantes.Restaurantes.Factura.Infrastructure.Adapters.HibernateFacturaRepository"/>
     <bean id="PlatoInsumoRepository" class="co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Infrastucture.Adapters.HibernatePlatoInsumoRepository"/>
+    <bean id="PlatoFacturaRepository" class="co.javeriana.restaurantes.Restaurantes.Factura.PlatoFactura.Infrastructure.Adapters.HibernatePlatoFacturaRepository"/>
     <!--- FINDERS -->
         <!--- INSUMOS -->
     <bean id="InsumoFindAll" class="co.javeriana.restaurantes.Restaurantes.Insumo.Application.FindAll.InsumoFindAll">
@@ -40,6 +41,15 @@
         <constructor-arg ref="RabbitMqEventBus"/>
     </bean>
 
+    <!--- PLATOFACTURA -->
+    <bean id="PlatoFacturaFindAll" class="co.javeriana.restaurantes.Restaurantes.Factura.PlatoFactura.Application.FindAll.PlatoFacturaFindAll">
+        <constructor-arg ref="PlatoFacturaRepository"/>
+    </bean>
+
+    <bean id="PlatoFacturaCreator" class="co.javeriana.restaurantes.Restaurantes.Factura.PlatoFactura.Application.Create.PlatoFacturaCreate">
+        <constructor-arg ref="PlatoFacturaRepository"/>
+        <constructor-arg ref="RabbitMqEventBus"/>
+    </bean>
 
     <!-- EMPLEADOS -->
     <bean id="EmpleadoFindAll" class="co.javeriana.restaurantes.Restaurantes.Empleado.Application.FindAll.EmpleadoFindAll">
