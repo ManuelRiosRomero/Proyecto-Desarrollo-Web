@@ -87,6 +87,14 @@
         <constructor-arg ref="FacturaRepository"/>
     </bean>
 
+    <bean id="FacturaFindById" class="co.javeriana.restaurantes.Restaurantes.Factura.Application.FindById.FacturaFindById">
+        <constructor-arg ref="FacturaRepository"/>
+    </bean>
+
+    <bean id="FacturaAddPlato" class="co.javeriana.restaurantes.Restaurantes.Factura.Application.AddPlatoFactura.FacturaAddPlato">
+        <constructor-arg ref="FacturaRepository"/>
+    </bean>
+
 
 
 
@@ -116,7 +124,7 @@
     </bean>
 
     <bean id="AddPlatoOnCreatePlatoFactura" class="co.javeriana.restaurantes.Restaurantes.Factura.Infrastructure.Listeners.AddPlatoOnCreatePlatoFactura">
-
+        <constructor-arg ref = "FacturaAddPlato"></constructor-arg>
     </bean>
 
 </beans>

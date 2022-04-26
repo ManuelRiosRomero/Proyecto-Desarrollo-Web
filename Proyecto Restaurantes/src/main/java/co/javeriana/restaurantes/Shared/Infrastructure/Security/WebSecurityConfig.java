@@ -35,6 +35,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/factura/plato/all").permitAll()
                 .antMatchers(HttpMethod.POST, "/factura/plato/create").permitAll()
                 .antMatchers(HttpMethod.GET, "/factura/all").permitAll()
+                .antMatchers(HttpMethod.POST, "/factura/create").permitAll()
+                .antMatchers(HttpMethod.POST, "/factura/id").permitAll()
                 .antMatchers(HttpMethod.GET, "/factura/total").permitAll()
                 .antMatchers(HttpMethod.GET, "/factura/modifyP").permitAll()
 

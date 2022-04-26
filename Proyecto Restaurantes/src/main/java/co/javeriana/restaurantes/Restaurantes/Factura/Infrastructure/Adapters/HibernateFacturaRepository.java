@@ -27,7 +27,6 @@ public class HibernateFacturaRepository extends HibernateRepository<Factura> imp
     @Override
     public void update(Factura factura) {
         updateEntity(factura);
-
     }
     @Override
     public Optional<Factura> findByID(FacturaID facturaId) {

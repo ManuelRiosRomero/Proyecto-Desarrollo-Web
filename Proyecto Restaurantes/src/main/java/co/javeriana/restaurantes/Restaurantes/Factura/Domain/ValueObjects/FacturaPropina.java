@@ -16,7 +16,7 @@ public class FacturaPropina extends DoubleValueObject {
     }
 
     private void cantidadNoNegativa(Double value) {
-        if (value <= 0) {
+        if (value < 0) {
             throw new CantidadNegativa("El valor de una propina debe ser mayor a 0.");
         }
     }

@@ -8,38 +8,24 @@ import java.util.List;
 public class FacturaPlato {
     private String id;
     private String nombre;
-    private String descripcion;
-    private double costo;
-    private List<Plato> platos;
+    private int cantidad;
+    private double precio;
 
-    public FacturaPlato(String id, String nombre, String descripcion, double costo, List<Plato> platos) {
+    public FacturaPlato(String id, String nombre, int cantidad, double precio) {
         this.id = id;
+        this.cantidad = cantidad;
         this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.costo = costo;
-        this.platos = platos;
+        this.precio = precio;
     }
 
     public HashMap<String, Object> data() {
         HashMap<String, Object> data = new HashMap<>();
         data.put("id", id);
         data.put("nombre", nombre);
-        data.put("descripcion", descripcion);
-        data.put("costo", costo);
-        data.put("platos", platos);
+        data.put("cantidad", cantidad);
+        data.put("precio", precio);
         return data;
     }
-
-    /*
-    private List<HashMap<String, Object>> createPlatos() {
-        List<HashMap<String, Object>> list = new ArrayList<>();
-        if (!platos.isEmpty()) {
-            list = platos.get().stream().map(plato -> plato.data()).collect(Collectors.toList());
-        }
-        return list;
-    }
-
-     */
 }
 
 

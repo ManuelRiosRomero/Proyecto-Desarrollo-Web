@@ -4,6 +4,7 @@ import co.javeriana.restaurantes.Restaurantes.Factura.Domain.Entities.FacturaPla
 import co.javeriana.restaurantes.Restaurantes.Factura.Domain.ValueObjects.*;
 import co.javeriana.restaurantes.Restaurantes.Factura.Domain.ValueObjects.RestauranteID;
 
+import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -54,6 +55,16 @@ public class Factura {
         }
         return list;
     }
+
+    public void addPlato(FacturaPlato plato) {
+        List<FacturaPlato> platos = new ArrayList<>();
+        if(platos.isEmpty()) {
+            platos = this.platos.get();
+        }
+        platos.add(plato);
+        this.platos = Optional.ofNullable(platos);
+    }
+
     private Factura(){platos = Optional.empty();}
 
 }
