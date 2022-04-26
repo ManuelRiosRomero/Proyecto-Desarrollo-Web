@@ -20,6 +20,9 @@
     <bean id="InsumoCreate" class="co.javeriana.restaurantes.Restaurantes.Insumo.Application.Create.InsumoCreate">
         <constructor-arg ref="InsumoRepository"/>
     </bean>
+    <bean id="InsumoModify" class="co.javeriana.restaurantes.Restaurantes.Insumo.Application.Modify.InsumoModify">
+        <constructor-arg ref="InsumoRepository"/>
+    </bean>
 
         <!--- PLATOS -->
     <bean id="PlatoFindAll" class="co.javeriana.restaurantes.Restaurantes.Plato.Application.FindAll.PlatoFindAll">
@@ -64,6 +67,9 @@
     </bean>
 
     <bean id="FacturaCalculateTotal" class="co.javeriana.restaurantes.Restaurantes.Factura.Application.Calculate.FacturaCalculateTotal">
+        <constructor-arg ref="FacturaRepository"/>
+    </bean>
+    <bean id="FacturaModifyPropina" class="co.javeriana.restaurantes.Restaurantes.Factura.Application.ModifyPropina.FacturaModifyPropina">
         <constructor-arg ref="FacturaRepository"/>
     </bean>
 
