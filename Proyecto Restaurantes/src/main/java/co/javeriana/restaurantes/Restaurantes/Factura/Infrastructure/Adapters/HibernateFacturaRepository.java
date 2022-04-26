@@ -26,14 +26,13 @@ public class HibernateFacturaRepository extends HibernateRepository<Factura> imp
 
     @Override
     public void update(Factura factura) {
+        updateEntity(factura);
 
     }
-
     @Override
     public Optional<Factura> findByID(FacturaID facturaId) {
-        return Optional.empty();
+        return byId(facturaId);
     }
-
     @Override
     public Optional<List<Factura>> all() {
         return getAll();
@@ -41,6 +40,6 @@ public class HibernateFacturaRepository extends HibernateRepository<Factura> imp
 
     @Override
     public void delete(Factura factura) {
-
+        deleteEntity(factura);
     }
 }

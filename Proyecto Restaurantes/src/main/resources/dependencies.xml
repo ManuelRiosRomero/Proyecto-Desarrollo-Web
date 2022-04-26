@@ -54,12 +54,16 @@
         <constructor-arg ref="EmpleadoRepository"/>
     </bean>
 
-    <!--- Factura -->
+    <!--- FACTURA -->
     <bean id="FacturaFindAll" class="co.javeriana.restaurantes.Restaurantes.Factura.Application.FindAll.FacturaFindAll">
         <constructor-arg ref="FacturaRepository"/>
     </bean>
 
     <bean id="FacturaCreate" class="co.javeriana.restaurantes.Restaurantes.Factura.Application.Create.FacturaCreate">
+        <constructor-arg ref="FacturaRepository"/>
+    </bean>
+
+    <bean id="FacturaCalculateTotal" class="co.javeriana.restaurantes.Restaurantes.Factura.Application.Calculate.FacturaCalculateTotal">
         <constructor-arg ref="FacturaRepository"/>
     </bean>
 
