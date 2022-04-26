@@ -17,6 +17,14 @@ public class StringValueObject {
         return Objects.equals(value, that.value);
     }
 
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(value);

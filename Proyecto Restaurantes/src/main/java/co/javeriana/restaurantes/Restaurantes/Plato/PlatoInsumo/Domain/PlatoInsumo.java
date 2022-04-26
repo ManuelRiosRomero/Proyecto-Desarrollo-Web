@@ -49,9 +49,9 @@ public class PlatoInsumo extends AggregateRoot {
 
     public HashMap<String, Object> data() {
         HashMap<String, Object> data = new HashMap<>();
-        data.put("id", insumoID.value());
+        data.put("id", platoInsumoID.getInsumoid());
         data.put("nombre", nombreinsumo);
-        data.put("platoID", platoID.value());
+        data.put("platoID", platoInsumoID.getPlatoid());
         data.put("cantidadNecesaria", cantidadNecesaria);
         return data;
     }

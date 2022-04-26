@@ -21,4 +21,12 @@ public class DoubleValueObject {
     public int hashCode() {
         return Objects.hash(value);
     }
+
+    public Double getValue() {
+        return value;
+    }
+
+    public void setValue(Double value) {
+        this.value = value;
+    }
 }

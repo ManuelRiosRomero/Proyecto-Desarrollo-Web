@@ -10,6 +10,14 @@ public class IntegerValueObject {
         return value;
     }
 
+    public Integer getValue() {
+        return value;
+    }
+
+    public void setValue(Integer value) {
+        this.value = value;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
