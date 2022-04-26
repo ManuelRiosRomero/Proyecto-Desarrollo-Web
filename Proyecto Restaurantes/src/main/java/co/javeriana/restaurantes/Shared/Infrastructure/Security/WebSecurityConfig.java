@@ -24,6 +24,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/empleado/all").permitAll()
+                .antMatchers(HttpMethod.POST, "/empleado/create").permitAll()
+                .antMatchers(HttpMethod.POST, "/empleado/login").permitAll()
 
                 .antMatchers(HttpMethod.GET, "/insumo/all").permitAll()
                 .antMatchers(HttpMethod.GET, "/insumo/id").permitAll()
@@ -38,7 +40,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/factura/create").permitAll()
                 .antMatchers(HttpMethod.POST, "/factura/id").permitAll()
                 .antMatchers(HttpMethod.GET, "/factura/total").permitAll()
-                .antMatchers(HttpMethod.GET, "/factura/modifyP").permitAll()
+                .antMatchers(HttpMethod.GET, "/factura/modify").permitAll()
 
                 .antMatchers(HttpMethod.GET, AUTH_WHITELIST).permitAll()
                 .anyRequest().authenticated();
