@@ -20,7 +20,7 @@ public class PlatoInsumo {
     public HashMap<String, Object> data() {
         HashMap<String, Object> data = new HashMap<>();
         data.put("id", id);
-        data.put("cantidad", cantidadnecesaria);
+        data.put("cantidadnecesaria", cantidadnecesaria);
         data.put("nombre", nombre);
         return data;
     }

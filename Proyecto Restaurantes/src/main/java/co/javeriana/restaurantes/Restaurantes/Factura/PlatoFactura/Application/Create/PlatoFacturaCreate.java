@@ -16,7 +16,7 @@ public class PlatoFacturaCreate {
     }
 
     public void execute(String facturaID, String platoId, String nombre, int cantidad, double precio) {
-        PlatoFactura platoFactura = PlatoFactura.create(new FacturaID(facturaID), new PlatoID(platoId),
+        PlatoFactura platoFactura = PlatoFactura.create(facturaID, platoId,
                 new PlatoFacturaNombre(nombre), new PlatoFacturaCantidad(cantidad), new PlatoFacturaPrecio(precio));
         repository.save(platoFactura);
         this.eventBus.publish(platoFactura.pullDomainEvents());

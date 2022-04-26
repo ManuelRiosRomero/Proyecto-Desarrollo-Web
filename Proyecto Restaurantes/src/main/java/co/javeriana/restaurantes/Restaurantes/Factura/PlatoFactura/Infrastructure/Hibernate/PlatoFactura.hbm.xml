@@ -6,16 +6,17 @@
 <hibernate-mapping>
     <class name="co.javeriana.restaurantes.Restaurantes.Factura.PlatoFactura.Domain.PlatoFactura" table="platofact">
 
-        <composite-id name ="facturaID" class="co.javeriana.restaurantes.Restaurantes.Factura.PlatoFactura.Domain.ValueObjects.FacturaID" access="field">
-            <key-property name="value" column="facturaID" type="string" access="field" />
+        <composite-id>
+            <key-property name="facturaID" type="string">
+                <column name="facturaID"/>
+            </key-property>
+            <key-property name="platoID" type="string">
+                <column name="platoID"/>
+            </key-property>
         </composite-id>
 
         <component name="nombre" class="co.javeriana.restaurantes.Restaurantes.Factura.PlatoFactura.Domain.ValueObjects.PlatoFacturaNombre" access="field">
             <property name="value" column="nombre" access="field" type="string"/>
-        </component>
-
-        <component name="platoID" class="co.javeriana.restaurantes.Restaurantes.Factura.PlatoFactura.Domain.ValueObjects.PlatoID" access="field">
-            <property name="value" column="platoID" access="field" type="string"/>
         </component>
 
         <component name="cantidad" class="co.javeriana.restaurantes.Restaurantes.Factura.PlatoFactura.Domain.ValueObjects.PlatoFacturaCantidad" access="field">
