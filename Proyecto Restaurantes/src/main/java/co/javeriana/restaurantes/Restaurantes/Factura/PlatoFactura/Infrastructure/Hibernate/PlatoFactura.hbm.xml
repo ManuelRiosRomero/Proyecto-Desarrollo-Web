@@ -1,0 +1,31 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="co.javeriana.restaurantes.Restaurantes.Factura.PlatoFactura.Domain.PlatoFactura" table="platofact">
+
+        <composite-id>
+            <key-property name="facturaID" type="string">
+                <column name="facturaID"/>
+            </key-property>
+            <key-property name="platoID" type="string">
+                <column name="platoID"/>
+            </key-property>
+        </composite-id>
+
+        <component name="nombre" class="co.javeriana.restaurantes.Restaurantes.Factura.PlatoFactura.Domain.ValueObjects.PlatoFacturaNombre" access="field">
+            <property name="value" column="nombre" access="field" type="string"/>
+        </component>
+
+        <component name="cantidad" class="co.javeriana.restaurantes.Restaurantes.Factura.PlatoFactura.Domain.ValueObjects.PlatoFacturaCantidad" access="field">
+            <property name="value" column="cantidadPlatos" access="field" type="int"/>
+        </component>
+
+        <component name="precio" class="co.javeriana.restaurantes.Restaurantes.Factura.PlatoFactura.Domain.ValueObjects.PlatoFacturaPrecio" access="field">
+            <property name="value" column="precio" access="field" type="double"/>
+        </component>
+
+    </class>
+</hibernate-mapping>

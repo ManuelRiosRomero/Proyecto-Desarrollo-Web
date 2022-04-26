@@ -44,6 +44,7 @@ public class PlatoInsumoCustomType implements UserType {
         try{
             Optional<String> value = Optional.ofNullable(rs.getString(names[0]));
             if(value.isPresent()){
+                //Lista de JSON con los objetos
                 List<HashMap<String, Object>> objects = new ObjectMapper().readValue(value.get(), List.class);
                 response = objects.stream().map(element -> new PlatoInsumo((String) element.get("id"),
                         (int) element.get("cantidadnecesaria"),

@@ -31,12 +31,23 @@ public class HibernatePlatoInsumoRepository extends HibernateRepository<PlatoIns
         updateEntity(platoInsumo);
     }
 
+
     @Override
     public Optional<List<PlatoInsumo>> findByPlatoId(String platoID) {
         CriteriaBuilder cb = sessionFactory.getCriteriaBuilder();
         CriteriaQuery<PlatoInsumo> cr = cb.createQuery(PlatoInsumo.class);
         Root<PlatoInsumo> root = cr.from(PlatoInsumo.class);
         cr.select(root).where(cb.equal(root.get("platoID"), platoID));
+        List<PlatoInsumo> platos = sessionFactory.getCurrentSession().createQuery(cr).getResultList();
+        return Optional.ofNullable(platos);
+    }
+
+    @Override
+    public Optional<List<PlatoInsumo>> findByPlatoIdAndInsumoID(String platoID, String insumoID) {
+        CriteriaBuilder cb = sessionFactory.getCriteriaBuilder();
+        CriteriaQuery<PlatoInsumo> cr = cb.createQuery(PlatoInsumo.class);
+        Root<PlatoInsumo> root = cr.from(PlatoInsumo.class);
+        cr.select(root).where(cb.equal(root.get("platoID"), platoID), cb.equal(root.get("insumoID"), insumoID));
         List<PlatoInsumo> platos = sessionFactory.getCurrentSession().createQuery(cr).getResultList();
         return Optional.ofNullable(platos);
     }

@@ -1,8 +1,8 @@
 package co.javeriana.restaurantes.Shared.Infrastructure.RabbitMQ.Serializable;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import co.javeriana.restaurantes.Shared.Domain.Bus.Event.DomainEvent;
 import co.javeriana.restaurantes.Shared.Infrastructure.RabbitMQ.DomainEventsInformation;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.Serializable;
 import java.lang.reflect.Method;

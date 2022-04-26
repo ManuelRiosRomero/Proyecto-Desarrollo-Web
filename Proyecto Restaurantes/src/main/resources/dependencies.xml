@@ -9,6 +9,7 @@
     <bean id="EmpleadoRepository" class="co.javeriana.restaurantes.Restaurantes.Empleado.Infrastructure.Adapters.HibernateEmpleadoRepository"/>
     <bean id="FacturaRepository" class="co.javeriana.restaurantes.Restaurantes.Factura.Infrastructure.Adapters.HibernateFacturaRepository"/>
     <bean id="PlatoInsumoRepository" class="co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Infrastucture.Adapters.HibernatePlatoInsumoRepository"/>
+    <bean id="PlatoFacturaRepository" class="co.javeriana.restaurantes.Restaurantes.Factura.PlatoFactura.Infrastructure.Adapters.HibernatePlatoFacturaRepository"/>
     <!--- FINDERS -->
         <!--- INSUMOS -->
     <bean id="InsumoFindAll" class="co.javeriana.restaurantes.Restaurantes.Insumo.Application.FindAll.InsumoFindAll">
@@ -33,6 +34,10 @@
         <constructor-arg ref="PlatoRepository"/>
     </bean>
 
+    <bean id="PlatoAddPlatoInsumo" class="co.javeriana.restaurantes.Restaurantes.Plato.Application.AddPlatoInsumo.PlatoAddPlatoInsumo">
+        <constructor-arg ref="PlatoRepository"/>
+    </bean>
+
     <!--- PLATOINSUMO -->
     <bean id="PlatoInsumoFindAll" class="co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Application.FindAll.PlatoInsumoFindAll">
         <constructor-arg ref="PlatoInsumoRepository"/>
@@ -43,6 +48,15 @@
         <constructor-arg ref="RabbitMqEventBus"/>
     </bean>
 
+    <!--- PLATOFACTURA -->
+    <bean id="PlatoFacturaFindAll" class="co.javeriana.restaurantes.Restaurantes.Factura.PlatoFactura.Application.FindAll.PlatoFacturaFindAll">
+        <constructor-arg ref="PlatoFacturaRepository"/>
+    </bean>
+
+    <bean id="PlatoFacturaCreator" class="co.javeriana.restaurantes.Restaurantes.Factura.PlatoFactura.Application.Create.PlatoFacturaCreate">
+        <constructor-arg ref="PlatoFacturaRepository"/>
+        <constructor-arg ref="RabbitMqEventBus"/>
+    </bean>
 
     <!-- EMPLEADOS -->
     <bean id="EmpleadoFindAll" class="co.javeriana.restaurantes.Restaurantes.Empleado.Application.FindAll.EmpleadoFindAll">
@@ -89,6 +103,17 @@
 
     <bean id="DomainEventJsonDeserializer" class="co.javeriana.restaurantes.Shared.Infrastructure.RabbitMQ.Serializable.DomainEventJsonDeserializer" >
         <constructor-arg ref="DomainEventInformation"/>
+    </bean>
+
+    <bean id="RabbitMqDomainEventsConsumer" class="co.javeriana.restaurantes.Shared.Infrastructure.RabbitMQ.RabbitMqDomainEventsConsumer" >
+        <constructor-arg ref="DomainEventInformation" />
+        <constructor-arg ref="DomainEventJsonDeserializer" />
+    </bean>
+
+
+    <!--- Eventos declarados -->
+    <bean id="AddPlatoInsumoOnCreatedPlatoInsumo" class="co.javeriana.restaurantes.Restaurantes.Plato.Infrastructure.Listeners.AddPlatoInsumoOnCreatedPlatoInsumo" >
+        <constructor-arg ref="PlatoAddPlatoInsumo"></constructor-arg>
     </bean>
 
 </beans>

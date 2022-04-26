@@ -1,5 +1,6 @@
 package co.javeriana.restaurantes.Shared.Infrastructure.RabbitMQ;
 
+import co.javeriana.restaurantes.Restaurantes.Plato.PlatoInsumo.Domain.DomainEvents.PlatoInsumoCreatedDomainEvent;
 import co.javeriana.restaurantes.Shared.Domain.Bus.Event.DomainEvent;
 
 //import com.webdev.productsystem.Users.Address.Domain.DomainEvents.AddressCreatedDomainEvent;
@@ -12,8 +13,11 @@ public class DomainEventsInformation {
     private final HashMap<String, String> domainEventSubscribers = new HashMap<>();
 
     public DomainEventsInformation() {
-        //indexedDomainEvent.put("add.address", AddressCreatedDomainEvent.class);
-        domainEventSubscribers.put("productSystem.users.address.add.address", "AddAddressOnCreatedAddress");
+        //TODO : Agregar los eventos que se van a usar
+        //Eventos de dominio
+        indexedDomainEvent.put("add.platoinsumo", PlatoInsumoCreatedDomainEvent.class);
+        //Suscriptores de eventos
+        domainEventSubscribers.put("restaurantsSystem.restaurantes.plato.platoinsumo.add.platoinsumo", "AddPlatoInsumoOnCreatedPlatoInsumo");
 
     }
 
