@@ -16,6 +16,16 @@ public class PlatoInsumo extends AggregateRoot {
     private PlatoInsumoNombre nombreinsumo;
     private PlatoInsumoCantidadNecesaria cantidadNecesaria;
 
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public PlatoInsumo(InsumoID insumoID, PlatoInsumoNombre nombreinsumo, PlatoID platoID, PlatoInsumoCantidadNecesaria cantidadNecesaria) {
         this.insumoID = insumoID;
         this.platoID = platoID;

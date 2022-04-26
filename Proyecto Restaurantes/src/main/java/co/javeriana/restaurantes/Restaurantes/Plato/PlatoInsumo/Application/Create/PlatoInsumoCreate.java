@@ -19,10 +19,15 @@ public class PlatoInsumoCreate {
     }
     public void execute(String insumoID, String nombreInsumo, String platoID, int cantidad)
     {
+        //int buscarP = repository.findByPlatoIdAndInsumoID(platoID, insumoID).get().size();
+        //if(buscarP == 0)
+        //{
+
+        //}
         PlatoInsumo platoInsumo = PlatoInsumo.create(new InsumoID(insumoID), new PlatoInsumoNombre(nombreInsumo), new PlatoID(platoID), new PlatoInsumoCantidadNecesaria(cantidad));
         repository.save(platoInsumo);
-
         //Publicar evento de creación de insumo plato
         this.eventBus.publish(platoInsumo.pullDomainEvents());
+
     }
 }
