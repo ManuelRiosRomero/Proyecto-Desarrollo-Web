@@ -1,9 +1,5 @@
 <template>
-  <ul class="wrapper-header">
-    <li>
-      <router-link to="/test">Home</router-link>
-    </li>
-  </ul>
+  <router-link to="/test">Home</router-link>
   <router-view />
 </template>
 
