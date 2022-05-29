@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
-
+@CrossOrigin
 @RestController
 @Tag(name = "Insumo", description = "Insumo REST API")
 @RequestMapping(value = "/insumo")
