@@ -33,6 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/insumo/id").permitAll()
                 .antMatchers(HttpMethod.POST, "/insumo/modify").permitAll()
 
+                .antMatchers(HttpMethod.POST, "/plato/create").permitAll()
                 .antMatchers(HttpMethod.GET, "/plato/all").permitAll()
                 .antMatchers(HttpMethod.POST, "/plato/update/all").permitAll()
                 .antMatchers(HttpMethod.GET, "/plato/insumo/all").permitAll()

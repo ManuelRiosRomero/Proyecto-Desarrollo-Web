@@ -1,52 +1,42 @@
 <template>
-  <h2>Crear Plato</h2>
-  <div class="wrapper-form">
-    <div class="wrapper-input">
-      <label>Id : </label>
-      <input type="text" class="form" v-model="nuevoPlato.id" />
-      <p>{{ errors.errorId }}</p>
-    </div>
-    <div class="wrapper-input">
-      <label>Nombre : </label>
-      <input type="text" class="form" v-model="nuevoPlato.nombre" />
-      <p>{{ errors.errorName }}</p>
-    </div>
-    <div class="wrapper-input">
-      <label>Descripcion : </label>
-      <input type="text" class="form" v-model="nuevoPlato.descripcion" />
-      <p>{{ errors.errorDescription }}</p>
-    </div>
-    <div class="wrapper-input">
-      <label>Costo : </label>
+  <h2>Agregar Plato</h2>
+  <form class="agregar">
+    <input
+      class="nombre"
+      type="text"
+      id="plato_nombre"
+      placeholder="Nombre del plato"
+      v-model="nuevoPlato.nombre"
+    />
+    <textarea
+      rows="5"
+      class="desc"
+      id="plato_desc"
+      placeholder="Descripcion"
+      v-model="nuevoPlato.descripcion"
+    />
+    <div class="costo">
+      <label for="">Costo</label>
       <input
         type="number"
-        class="form"
+        class="costo"
+        id="plato_costo"
         v-model="nuevoPlato.costo"
-        @input="checkValue"
       />
-      <div class="wrapper-error" v-if="errors.errorValue != ''">
-        <p>{{ errors.errorValue }}</p>
-      </div>
     </div>
-    <div class="wrapper-input">
-      <label>ID del Restaurante : </label>
-      <input type="text" class="form" v-model="nuevoPlato.restauranteId" />
-      <p>{{ errors.errorRestID }}</p>
-    </div>
-  </div>
-  <button @click="createPlatoUse">Cargar Plato</button>
+  </form>
+  <button class="submit" @click="agregarPlato">Agregar Plato</button>
 </template>
 
 <script>
 import { ref } from "vue";
 import { menuUse } from "@/uses/MenuUse";
 
-const { createPlato } = menuUse();
 export default {
   name: "CrearPlato",
   setup() {
+    const { createPlatoUse } = menuUse();
     const nuevoPlato = ref({
-      id: "",
       nombre: "",
       descripcion: "",
       costo: 0,
@@ -59,35 +49,20 @@ export default {
       errorValue: "",
       errorRestID: "",
     });
-    function checkValue(event) {
-      const actualValue = event.target.value;
-      if (actualValue < 0 || actualValue == 0) {
-        errors.value.errorValue =
-          "El valor de un plato no puede ser igual o menor que 0";
-      } else {
-        errors.value.errorValue = "";
-      }
-    }
-    async function createPlatoUse(nuevoPlato) {
-      await createPlato(JSON.stringify(nuevoPlato));
-      //await createPlato(nuevoPlato);
 
-      /*
-        await createPlato(
-        JSON.stringify(
-          nuevoPlato.value.id,
-          nuevoPlato.value.name,
-          nuevoPlato.value.descripcion,
-          nuevoPlato.value.costo,
-          nuevoPlato.value.restauranteId
-        )
+    async function agregarPlato() {
+      console.log("Llamado a agregar plato");
+      await createPlatoUse(
+        nuevoPlato.value.nombre,
+        nuevoPlato.value.descripcion,
+        nuevoPlato.value.costo
       );
-* */
     }
+
     return {
+      agregarPlato,
       nuevoPlato,
       errors,
-      checkValue,
       createPlatoUse,
     };
   },
@@ -95,7 +70,30 @@ export default {
 </script>
 
 <style scoped>
-.wrapper-error {
-  border: 1px solid red;
+.agregar {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.nombre {
+  display: block;
+  width: 50%;
+  margin: 20px auto;
+}
+
+.desc {
+  display: block;
+  width: 50%;
+  margin: 20px auto;
+  height: 20%;
+}
+
+.costo {
+  margin: 0 20px;
+}
+
+.submit {
+  margin: 20px;
 }
 </style>

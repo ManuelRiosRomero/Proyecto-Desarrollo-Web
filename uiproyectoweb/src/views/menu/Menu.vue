@@ -29,24 +29,6 @@ export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Menu",
   components: { MenuItem },
-  data() {
-    return {
-      items: [
-        {
-          id: "531fcea8-c4ea-11ec-9d64-0242ac120002",
-          descripcion:
-            "Ensalada compuesta por lechuga, tomate, crutones y trozos de pollo,queso",
-          nombre: "Ensalada de Pollo",
-        },
-        {
-          id: "a4ba8004-bf4b-11ec-9d64-0242ac120002",
-          descripcion: "Un arroz con pollo completo sin bebida",
-          nombre: "Arroz con pollo",
-        },
-      ],
-      path: "../assets/logo.png",
-    };
-  },
   setup() {
     const { platos, goToCrearPlato } = menuUse();
     return {

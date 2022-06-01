@@ -13,7 +13,7 @@ export function apiRestaurantes() {
 
     if (!response.ok) {
       console.error("Hubo un error recibiendo todos los platos");
-    }
+    } else console.log(response);
 
     const content = await response.json();
     console.log("Fetched: ");
@@ -25,13 +25,14 @@ export function apiRestaurantes() {
   }
   // Funcion de crear un plato
   async function createPlato(body) {
+    console.log(body);
     const url = "http://localhost:8080/plato/create";
     const config = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: body,
+      body: JSON.stringify(body),
     };
 
     const response = await fetch(url, config);
@@ -42,6 +43,7 @@ export function apiRestaurantes() {
 
     if (!response.ok) {
       console.error("Hubo un error al crear un plato");
+      console.error(response.status);
     }
   }
   async function addInsumoPlato() {}
