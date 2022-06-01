@@ -1,5 +1,5 @@
 <template>
-  <router-link to="/test">Home</router-link>
+  <router-link to="/">Home</router-link>
   <router-view />
 </template>
 
@@ -12,6 +12,7 @@ export default {
     const title = ref("Ejemplo");
 
     onErrorCaptured((error) => {
+      console.log("El error ".concat(error).concat(" llego aqui"));
       alert(error.message);
     });
 

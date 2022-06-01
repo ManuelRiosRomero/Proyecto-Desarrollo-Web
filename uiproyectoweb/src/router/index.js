@@ -3,10 +3,12 @@ import Home from "../views/HomeView.vue";
 import About from "../views/AboutView.vue";
 import Pedido from "../views/pedido/Pedido.vue";
 import Menu from "../views/menu/Menu.vue";
+import CrearPlato from "../views/menu/CrearPlato.vue";
+import Login from "../views/LoginView.vue";
 
 const routes = [
   {
-    path: "/test",
+    path: "/",
     component: Home,
   },
   {
@@ -21,6 +23,14 @@ const routes = [
   {
     path: "/menu",
     component: Menu,
+  },
+  {
+    path: "/menu/crearplato",
+    component: CrearPlato,
+  },
+  {
+    path: "/login",
+    component: Login,
   },
 ];
 

@@ -17,7 +17,7 @@
     ></menu-item>
   </ul>
   <div class="bottom">
-    <button class="but">Agregar Plato</button>
+    <button @click="goToCrearPlato">Agregar Plato</button>
   </div>
 </template>
 
@@ -48,9 +48,10 @@ export default {
     };
   },
   setup() {
-    const { platos } = menuUse();
+    const { platos, goToCrearPlato } = menuUse();
     return {
       platos,
+      goToCrearPlato,
     };
   },
 };
