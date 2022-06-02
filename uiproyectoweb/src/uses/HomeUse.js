@@ -14,10 +14,14 @@ export function HomeUse() {
   async function goToPedido() {
     await router.push("/pedido");
   }
+  async function goToFactura() {
+    await router.push("/factura");
+  }
 
   return {
     goToMenu,
     goToAbout,
     goToPedido,
+    goToFactura,
   };
 }

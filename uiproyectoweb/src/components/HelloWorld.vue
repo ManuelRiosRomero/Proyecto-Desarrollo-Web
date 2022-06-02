@@ -4,6 +4,7 @@
     <ul class="wrapper-botones">
       <button @click="goToMenu">Revisar Menu</button>
       <button @click="goToPedido">Realizar Pedido(s)</button>
+      <button @click="goToFactura">Ver Todas las Facturas</button>
       <button @click="goToAbout">About del Proyecto</button>
     </ul>
     <h3>Essential Links</h3>
@@ -50,38 +51,6 @@
         >
       </li>
     </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li>
-        <a href="https://router.vuejs.org" target="_blank" rel="noopener"
-          >vue-router</a
-        >
-      </li>
-      <li>
-        <a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-devtools#vue-devtools"
-          target="_blank"
-          rel="noopener"
-          >vue-devtools</a
-        >
-      </li>
-      <li>
-        <a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener"
-          >vue-loader</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-          rel="noopener"
-          >awesome-vue</a
-        >
-      </li>
-    </ul>
   </div>
 </template>
 
@@ -93,9 +62,9 @@ export default {
     msg: String,
   },
   setup() {
-    const { goToMenu, goToAbout, goToPedido } = HomeUse();
+    const { goToMenu, goToAbout, goToPedido, goToFactura } = HomeUse();
 
-    return { goToMenu, goToAbout, goToPedido };
+    return { goToMenu, goToAbout, goToPedido, goToFactura };
   },
 };
 </script>

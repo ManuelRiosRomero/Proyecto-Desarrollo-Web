@@ -1,4 +1,6 @@
-<template></template>
+<template>
+  <h2>mis facturas</h2>
+</template>
 
 <script>
 export default {
