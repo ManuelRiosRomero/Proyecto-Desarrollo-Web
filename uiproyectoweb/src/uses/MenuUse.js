@@ -43,6 +43,8 @@ export function menuUse() {
     console.log("Attempted request with the following body: ");
     console.log(plato);
 
+    await router.push("/menu/agregarInsumos");
+
     await createPlato(plato);
   }
 

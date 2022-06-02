@@ -30,7 +30,7 @@
 
 <script>
 import { ref } from "vue";
-import { menuUse } from "@/uses/MenuUse";
+import { menuUse } from "../../uses/MenuUse";
 
 export default {
   name: "CrearPlato",

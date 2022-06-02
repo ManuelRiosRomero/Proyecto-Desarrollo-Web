@@ -17,7 +17,7 @@
     ></menu-item>
   </ul>
   <div class="bottom">
-    <button @click="goToCrearPlato">Agregar Plato</button>
+    <button @click="goToCrearPlato">Ir a Crear Plato</button>
   </div>
 </template>
 

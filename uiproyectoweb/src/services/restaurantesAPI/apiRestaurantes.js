@@ -47,13 +47,56 @@ export function apiRestaurantes() {
     }
   }
   async function addInsumoPlato() {}
+  //Funcion de recibir todas las facturas
+  async function getFactura() {
+    const url = "http://localhost:8080/factura/all";
+    const config = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
 
-  async function createFactura() {}
+    const response = await fetch(url, config);
+
+    if (!response.ok) {
+      console.error("Hubo un error recibiendo todos los platos");
+    }
+
+    const content = await response.json();
+    console.log("Fetched: ");
+    console.log(content);
+
+    return {
+      content,
+    };
+  }
+  async function createFactura(body) {
+    const url = "http://localhost:8080/factura/create";
+    const config = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: body,
+    };
+
+    const response = await fetch(url, config);
+
+    const content = await response.json();
+    console.log("Fetched: ");
+    console.log(content);
+
+    if (!response.ok) {
+      console.error("Hubo un error al crear una factura");
+    }
+  }
   async function getPlatosFactura() {}
   async function addPlatoFactura() {}
 
   return {
     getMenu,
+    getFactura,
     createPlato,
     addInsumoPlato,
     createFactura,

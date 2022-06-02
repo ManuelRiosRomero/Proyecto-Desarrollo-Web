@@ -1,20 +1,23 @@
 <template>
   <ul class="view-titulo">
     <p>Pantalla de Pedidos</p>
+    <button @click="goToFactura">Ver Facturas</button>
+    <button @click="goToCrearFactura">Crear Factura</button>
   </ul>
-  <p>Pantalla de Pedidos</p>
-  <p>Pantalla de Pedidos</p>
-  <p>Pantalla de Pedidos</p>
-  <p>Pantalla de Pedidos</p>
 </template>
 
-<script>
+<script lang="js">
+import { PedidoUse } from "@/uses/Pedido/PedidoUse";
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Pedido",
   components: {},
   setup() {
-    return {};
+    const { goToFactura, goToCrearFactura } = PedidoUse()
+    return {
+      goToFactura,
+      goToCrearFactura,
+    };
   },
 };
 </script>

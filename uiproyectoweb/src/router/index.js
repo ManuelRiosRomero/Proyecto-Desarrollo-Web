@@ -5,6 +5,8 @@ import Pedido from "../views/pedido/Pedido.vue";
 import Menu from "../views/menu/Menu.vue";
 import CrearPlato from "../views/menu/CrearPlato.vue";
 import Login from "../views/LoginView.vue";
+import Factura from "../views/pedido/factura/Factura.vue";
+import CrearFactura from "../views/pedido/factura/CrearFactura.vue";
 
 const routes = [
   {
@@ -31,6 +33,14 @@ const routes = [
   {
     path: "/login",
     component: Login,
+  },
+  {
+    path: "/factura",
+    component: Factura,
+  },
+  {
+    path: "/factura/create",
+    component: CrearFactura,
   },
 ];
 
