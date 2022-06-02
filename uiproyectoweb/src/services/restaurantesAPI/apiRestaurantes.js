@@ -37,18 +37,49 @@ export function apiRestaurantes() {
 
     const response = await fetch(url, config);
 
-    const content = await response.json();
-    console.log("Fetched: ");
-    console.log(content);
-
     if (!response.ok) {
       console.error("Hubo un error al crear un plato");
       console.error(response.status);
     }
   }
-  async function addInsumoPlato() {}
-  //Funcion de recibir todas las facturas
-  async function getFactura() {
+
+  async function createFactura(body) {
+    console.log(body);
+    const url = "http://localhost:8080/factura/create";
+    const config = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    };
+
+    const response = await fetch(url, config);
+    if (!response.ok) {
+      console.error("Hubo un error al crear un plato");
+      console.error(response.status);
+    }
+  }
+
+  async function addPlatoFactura(body) {
+    console.log(body);
+    const url = "http://localhost:8080/factura/plato/create";
+    const config = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    };
+
+    const response = await fetch(url, config);
+    if (!response.ok) {
+      console.error("Hubo un error al agregarle un plato a la factura");
+      console.error(response.status);
+    }
+  }
+
+  async function getFacturas() {
     const url = "http://localhost:8080/factura/all";
     const config = {
       method: "GET",
@@ -60,8 +91,8 @@ export function apiRestaurantes() {
     const response = await fetch(url, config);
 
     if (!response.ok) {
-      console.error("Hubo un error recibiendo todos los platos");
-    }
+      console.error("Hubo un error recibiendo todas las facturas");
+    } else console.log(response);
 
     const content = await response.json();
     console.log("Fetched: ");
@@ -71,36 +102,12 @@ export function apiRestaurantes() {
       content,
     };
   }
-  async function createFactura(body) {
-    const url = "http://localhost:8080/factura/create";
-    const config = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: body,
-    };
-
-    const response = await fetch(url, config);
-
-    const content = await response.json();
-    console.log("Fetched: ");
-    console.log(content);
-
-    if (!response.ok) {
-      console.error("Hubo un error al crear una factura");
-    }
-  }
-  async function getPlatosFactura() {}
-  async function addPlatoFactura() {}
 
   return {
     getMenu,
-    getFactura,
     createPlato,
-    addInsumoPlato,
     createFactura,
-    getPlatosFactura,
     addPlatoFactura,
+    getFacturas,
   };
 }

@@ -7,10 +7,11 @@ export function PedidoUse() {
   const router = useRouter();
   const facturas = ref([]);
   const pedidos = ref([]);
-  const { getFactura, getPlatosFactura, createFactura } = apiRestaurantes();
+  const { getFacturas, getPlatosFactura, createFactura, addPlatoFactura } =
+    apiRestaurantes();
 
   onMounted(async () => {
-    facturas.value = (await getFactura()).content;
+    facturas.value = (await getFacturas()).content;
     console.log("Loaded: ");
     console.log(facturas.value);
   });
@@ -20,6 +21,9 @@ export function PedidoUse() {
   }
   async function goToCrearFactura() {
     await router.push("/factura/create");
+  }
+  async function goHome() {
+    await router.push("home");
   }
   async function createFacturaUse(valor, fecha, propina) {
     if (valor === "") {
@@ -36,9 +40,8 @@ export function PedidoUse() {
     console.log("Attempted request with the following body: ");
     console.log(factura);
 
-    await router.push("/menu/agregarInsumos");
-
     await createFactura(factura);
+    return factura;
   }
 
   function uuidv4() {
@@ -50,14 +53,34 @@ export function PedidoUse() {
     );
   }
 
+  async function createPlatoFacturaUse(
+    precio,
+    facturaID,
+    platoID,
+    cantidad,
+    nombre
+  ) {
+    const platoFactura = {
+      precio: precio,
+      facturaID: facturaID,
+      platoID: platoID,
+      cantidad: cantidad,
+      nombre: nombre,
+    };
+
+    await addPlatoFactura(platoFactura);
+  }
+
   return {
     goToFactura,
     facturas,
     pedidos,
     getPlatosFactura,
-    getFactura,
+    getFacturas,
     goToCrearFactura,
     createFactura,
     createFacturaUse,
+    createPlatoFacturaUse,
+    goHome,
   };
 }

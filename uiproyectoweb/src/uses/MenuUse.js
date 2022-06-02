@@ -46,6 +46,8 @@ export function menuUse() {
     await router.push("/menu/agregarInsumos");
 
     await createPlato(plato);
+    alert("Se ha creado el nuevo plato");
+    await router.push("/menu");
   }
 
   return {

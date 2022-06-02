@@ -3,32 +3,32 @@
     <img class="img" src="../../assets/item.png" />
     <p class="nombre">{{ nombre }}</p>
     <p class="descripcion">{{ descripcion }}</p>
+    <button class="agregar">Agregar</button>
   </li>
 </template>
 
-<script lang="js">
-
+<script>
 export default {
-  name: "MenuItem",
+  name: "PedidoMenuItem",
   props: {
     nombre: {
       type: String,
-      default: ""
+      default: "",
     },
     descripcion: {
       type: String,
-      default: ""
+      default: "",
     },
     path: {
       type: String,
-      default: ""
+      default: "",
     },
-    costo: {
-      type: Number,
+    id: {
+      type: String,
       required: true,
-    }
+    },
   },
-}
+};
 </script>
 
 <style scoped>
